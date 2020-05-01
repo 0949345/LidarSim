@@ -1,0 +1,1 @@
+//De globale variable
