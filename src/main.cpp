@@ -5,6 +5,7 @@ void setup()
 {
   Serial.begin(9600);
   pinMode(onboardLed, OUTPUT);
+  Serial.println("Start");
 }
 void loop()
 {
