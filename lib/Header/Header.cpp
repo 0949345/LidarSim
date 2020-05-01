@@ -1,15 +1,17 @@
 #include "Header.h"
 
 void Header::generateHeader(int size) { //biggest part of the header can be hardcoded
-    header[0] = 'MS3';
+    header.datagram_marker = 1; //TO DO: Needs edeting
+    header.protocol = 2; //TO DO: Needs edeting
+    header.version = 1.0;
 }
 
 //  Getters & Setters
 
-char Header::getHeaderIndex(int i){
-    return header[i];
+headerStruct Header::getHeader(){
+    return header;
 }
 
-void Header::setHeaderIndex(int i, char value){
-    header[i] = value;
+void Header::setHeader(headerStruct value){
+    header = value;
 }

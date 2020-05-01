@@ -15,7 +15,7 @@ void setup()
 //Testen van Jayden
 void testFunctionJayden(){
   Header classHeader;
-  Serial.println(classHeader.getHeaderIndex(0));
+  Serial.println(classHeader.getHeader().version);
 }
 
 // Testen van keanu

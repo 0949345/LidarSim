@@ -6,11 +6,11 @@
 
 class Header{
 private:
-    char header[10];
+    headerStruct header;
 protected:
 public:
     void generateHeader(int size);
-    
-    char getHeaderIndex(int i);
-    void setHeaderIndex(int i, char value); //not sure if needed
+
+    headerStruct getHeader();
+    void setHeader(headerStruct value); //not sure if needed
 };
