@@ -10,6 +10,7 @@ private:
 protected:
 public:
     void generateHeader(int size);
+    void generateHeader(int size, int prevOffset);
 
     headerStruct getHeader();
     void setHeader(headerStruct value); //not sure if needed
