@@ -11,6 +11,12 @@ void Body::setBeam(int distance_, int RSSI_, byte status_, int beamNr){
 }
 
 void Body::generateBeams(){
+for (int i = 0; i < 9; i++)
+{
+    beams[i].distance = rand() % 99 +1;
+    beams[i].RSSI = (rand() % 99 +1)/100;
+    beams[i].status = rand() % 5 +1;
+}
 
 
 
