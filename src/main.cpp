@@ -1,9 +1,16 @@
 #include <Arduino.h>
+#define onboardLed 13
 
-void setup() {
-  // put your setup code here, to run once:
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(onboardLed, OUTPUT);
 }
-
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop()
+{
+  digitalWrite(onboardLed, LOW);
+  delay(1000);
+  digitalWrite(onboardLed, HIGH);
+  delay(1000);
+  Serial.println("Ghello World! LilBish");
 }
