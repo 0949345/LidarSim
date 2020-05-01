@@ -8,9 +8,6 @@
 
 class Body {
 
-
-
-
 private:
   beamStruct beams[10];  
 protected:
