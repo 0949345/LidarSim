@@ -9,6 +9,8 @@ private:
     char header[10];
 protected:
 public:
-    char getHeader(int i);
-    void setHeader(int i, char value); //not sure if needed
+    void generateHeader(int size);
+    
+    char getHeaderIndex(int i);
+    void setHeaderIndex(int i, char value); //not sure if needed
 };

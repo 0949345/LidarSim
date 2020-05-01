@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#include "Header.h"
-#include "Body.h"
+#include "../lib/Header/Header.h"
+#include "../lib/Body/Body.h"
 #define onboardLed 13
 
 void setup()
@@ -10,6 +10,19 @@ void setup()
   Serial.println("Leggoooooo");
   
 }
+
+
+//Testen van Jayden
+void testFunctionJayden(){
+  Header classHeader;
+  Serial.println(classHeader.getHeaderIndex(0));
+}
+
+// Testen van keanu
+void testFunctionKeanu(){
+
+}
+
 void loop()
 {
   digitalWrite(onboardLed, LOW);
@@ -17,4 +30,6 @@ void loop()
   digitalWrite(onboardLed, HIGH);
   delay(1000);
   Serial.println("Ghello World! LilBish");
+  testFunctionJayden();
+  testFunctionKeanu();
 }
