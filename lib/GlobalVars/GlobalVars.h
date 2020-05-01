@@ -24,3 +24,4 @@ struct beamStruct {
     int RSSI;           //intensity
     byte status;        //status = geen licht/blind/reflector/Error/Warning 
 };
+
