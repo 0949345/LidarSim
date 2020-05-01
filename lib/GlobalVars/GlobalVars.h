@@ -12,8 +12,8 @@
 
 
 struct headerStruct {
-    int datagram_marker;
-    int protocol;               
+    String datagram_marker;
+    String protocol;
     double version;
     int length;
     int fragment_offset;

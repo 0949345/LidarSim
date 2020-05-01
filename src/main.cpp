@@ -15,7 +15,7 @@ void setup()
 //Testen van Jayden
 void testFunctionJayden(){
   Header classHeader;
-  Serial.println(classHeader.getHeader().version);
+  Serial.println(classHeader.getHeader().datagram_marker);
 }
 
 // Testen van keanu
