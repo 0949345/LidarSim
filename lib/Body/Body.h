@@ -19,5 +19,6 @@ void setBeam(int distance_, int RSSI_, byte status_, int beamNr);
 void generateBeams(int amount);
 void splitToMaxSize();
 int checkSize();
+void printBeams();
 };
 
