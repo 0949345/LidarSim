@@ -49,7 +49,7 @@ void Body::setBeam(int distance_, int RSSI_, byte status_, int beamNr)
     beams[beamNr].status = status_;
 }
 
-beamStruct *Body::getBeams()
+beamStruct Body::getBeams()
 {
-    return beams;
+    return beams[0];
 }

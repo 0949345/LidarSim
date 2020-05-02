@@ -14,6 +14,8 @@ protected:
 public:
   EthernetProtocol();
   void generate(int amount);
-  void getBody();
+
+  //Setters && Getters
+  beamStruct getBody();
   void getHeader();
 };
