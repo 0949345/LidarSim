@@ -15,19 +15,16 @@ void testFunctionJayden()
   Serial.println(classHeader.getHeader().protocol);
   Serial.println(classHeader.getHeader().version);
   Serial.println(classHeader.getHeader().length);
-  Serial.println("================\n");
+  Serial.println("=================\n");
   Serial.println("Body:");
   Body classBody(1);
   classBody.generateBeams(6);
-  Serial.println("================\n");
+  Serial.println("=================\n");
 }
 
 // Testen van keanu
-void testFunctionKeanu()
-{
-  EthernetProtocol ethernet;
-  Body b(2);
-  b.generateBeams(9);
+void testFunctionKeanu(){
+EthernetProtocol ethernet;
 }
 
 void setup()
