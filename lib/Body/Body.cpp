@@ -1,8 +1,9 @@
 #include "Body.h"
 Body::Body(int beamAmount)
 {
-    Serial.print("Generating beams: ");
-    Serial.println(beamAmount);
+    Serial.print("Generating ");
+    Serial.print(beamAmount);
+    Serial.println(" beams:");
     generateBeams(beamAmount);
     this->beamAmount = beamAmount;
     //beamAmount = beamAmount_;
@@ -26,9 +27,6 @@ void Body::generateBeams(int amount)
         //Serial.println(var);
         beams[i].RSSI = (var / 10);
         beams[i].status = rand() % 5 + 1;
-        Serial.println(beams[i].distance);
-        Serial.println(beams[i].RSSI);
-        Serial.println(beams[i].status);
     }
 }
 
@@ -40,4 +38,13 @@ int Body::checkSize()
 { //sddsdssd
 
     return 1;
+}
+void Body::printBeams()
+{
+    for (int i = 0; i < beamAmount; i++)
+    {
+        Serial.println(beams[i].distance);
+        Serial.println(beams[i].RSSI);
+        Serial.println(beams[i].status);
+    }
 }
