@@ -2,14 +2,6 @@
 #include "../lib/Header/Header.h"
 #include "../lib/Body/Body.h"
 #define onboardLed 13
-void testFunctionKeanu();
-void setup()
-{
-  Serial.begin(9600);
-  pinMode(onboardLed, OUTPUT);
-  Serial.println("Leggoooooo");
-  testFunctionKeanu();
-}
 
 
 //Testen van Jayden
@@ -30,13 +22,21 @@ Body b(2);
 b.generateBeams(9);
 }
 
+
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(onboardLed, OUTPUT);
+  Serial.println("Leggoooooo");
+  testFunctionJayden();
+  testFunctionKeanu();
+}
+
 void loop()
 {
   digitalWrite(onboardLed, LOW);
   delay(1000);
   digitalWrite(onboardLed, HIGH);
   delay(1000);
-  Serial.println("Ghello World! LilBish");
-  testFunctionJayden();
-  testFunctionKeanu();
 }
