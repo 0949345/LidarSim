@@ -13,4 +13,6 @@ protected:
 public:
   EthernetProtocol();
   void generate(int amount);
+  void getBody();
+  void getHeader();
 };

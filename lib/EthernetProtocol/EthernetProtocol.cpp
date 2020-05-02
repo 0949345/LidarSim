@@ -11,3 +11,15 @@ void EthernetProtocol::generate(int amount)
     //Header h;
 }
 
+
+void EthernetProtocol::getHeader(){
+
+
+
+}
+
+void EthernetProtocol::getBody(){      //nog type aanpassen
+
+//return b.
+}
+
