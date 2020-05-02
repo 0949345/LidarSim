@@ -18,6 +18,6 @@ public:
   void generate(int amount);
 
   //Setters && Getters
-  beamStruct getBody();
+  beamStruct * getBody();
   void getHeader();
 };

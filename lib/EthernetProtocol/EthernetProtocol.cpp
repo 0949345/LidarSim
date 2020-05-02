@@ -9,7 +9,7 @@ void EthernetProtocol::generate(int amount)
     b.setBeamAmount(6);
     b.generateBeams();
     b.printBeams();
-    int test = b.getBeams().distance;
+    int test = b.getBeams()[0].distance;
     Serial.println(test);
     //Header h;
 }
@@ -22,7 +22,7 @@ void EthernetProtocol::getHeader(){
 }
 //moet aangeroepen kunnen worden door de ethernet connection
 //om de body te krijgen zodat deze weer omgezet kan worden
-beamStruct EthernetProtocol::getBody(){  
+beamStruct * EthernetProtocol::getBody(){  
 return b.getBeams();
 //return b.
 }
