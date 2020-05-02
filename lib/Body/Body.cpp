@@ -48,3 +48,7 @@ void Body::printBeams()
         Serial.println(beams[i].status);
     }
 }
+
+beamStruct* Body::getBeams(){
+return beams;
+}
