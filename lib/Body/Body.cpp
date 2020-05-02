@@ -33,7 +33,7 @@ void Body::splitToMaxSize(){
 
 }
 
-int Body::checkSize(){          //
+int Body::checkSize(){          //sddsdssd
 
 return 1;
 }
