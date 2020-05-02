@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "../lib/Header/Header.h"
 #include "../lib/Body/Body.h"
+#include "../lib/EthernetProtocol/EthernetProtocol.h"
 #define onboardLed 13
 void testFunctionKeanu();
 void setup()
@@ -26,8 +27,8 @@ void testFunctionJayden(){
 
 // Testen van keanu
 void testFunctionKeanu(){
-Body b(2);
-b.generateBeams(9);
+EthernetProtocol ethernet;
+
 }
 
 void loop()

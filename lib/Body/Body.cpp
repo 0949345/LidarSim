@@ -1,5 +1,10 @@
 #include "Body.h"
 Body::Body(int beamAmount){
+    Serial.println("generating beams dadadadada");
+    Serial.println(beamAmount);
+    generateBeams(beamAmount);
+    this.beamAmount = beamAmount;
+    //beamAmount = beamAmount_;
 //beamStruct beams[beamAmount];
 //setBeamAmount();
 }
