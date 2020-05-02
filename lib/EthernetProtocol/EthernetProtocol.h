@@ -19,5 +19,5 @@ public:
 
   //Setters && Getters
   beamStruct * getBody();
-  void getHeader();
+  headerStruct getHeader();
 };

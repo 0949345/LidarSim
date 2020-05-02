@@ -16,8 +16,8 @@ public:
   void splitToMaxSize();
   int checkSize();
   void printBeams();
-  beamStruct * getBeams();
   //Setters && Getters
+  beamStruct * getBeams();
   void setBeamAmount(int amount);
   void setBeam(int distance_, int RSSI_, byte status_, int beamNr);
 };
