@@ -9,8 +9,8 @@ private:
     headerStruct header;
 protected:
 public:
-    void generateHeader(int size);
-    void generateHeaderNonFirst(int size, int prevSize, int prevOffsetd);
+    void generateFirstHeader(int size);
+    void generateNonFirstHeader(int size, int prevSize, int prevOffsetd);
 
     headerStruct getHeader();
     void setHeader(headerStruct value); //not sure if needed
