@@ -9,7 +9,7 @@ void EthernetProtocol::generate(int amount)
     b.setBeamAmount(6);
     b.generateBeams();
     b.printBeams();
-    int test = b.getBeams()[0];
+    int test = b.getBeams().distance;
     Serial.println(test);
     //Header h;
 }
