@@ -4,7 +4,7 @@ Body::Body(int beamAmount)
     Serial.print("Generating beams: ");
     Serial.println(beamAmount);
     generateBeams(beamAmount);
-    // this.beamAmount = beamAmount;
+    this->beamAmount = beamAmount;
     //beamAmount = beamAmount_;
     //beamStruct beams[beamAmount];
     //setBeamAmount();
