@@ -17,12 +17,13 @@ void EthernetProtocol::generate(int amount)
 
 void EthernetProtocol::getHeader(){
 
-
+//return h.
 
 }
-
-beamStruct EthernetProtocol::getBody(){      //nog type aanpassen
-// return b.getBeams();
+//moet aangeroepen kunnen worden door de ethernet connection
+//om de body te krijgen zodat deze weer omgezet kan worden
+beamStruct EthernetProtocol::getBody(){  
+return b.getBeams();
 //return b.
 }
 
