@@ -8,8 +8,8 @@ class EthernetProtocol
 {
 
 private:
-Body b;
-Header h;
+  Body b;
+  Header h;
   //b
   //h
 protected:
@@ -18,6 +18,6 @@ public:
   void generate(int amount);
 
   //Setters && Getters
-  beamStruct * getBody();
+  beamStruct *getBody();
   headerStruct getHeader();
 };

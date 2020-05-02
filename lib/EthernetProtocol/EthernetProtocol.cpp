@@ -1,7 +1,6 @@
 #include "EthernetProtocol.h"
 EthernetProtocol::EthernetProtocol()
 {
-
 }
 
 void EthernetProtocol::generate(int amount)
@@ -14,23 +13,21 @@ void EthernetProtocol::generate(int amount)
     //Header h;
 }
 
+headerStruct EthernetProtocol::getHeader()
+{
 
-headerStruct EthernetProtocol::getHeader(){
-
-return h.getHeader();
-
+    return h.getHeader();
 }
 //moet aangeroepen kunnen worden door de ethernet connection
 //om de body te krijgen zodat deze weer omgezet kan worden
 
-
-//deze functie wordt aangeroepen vanuit ethernet Con hierbij maken wij een var 
+//deze functie wordt aangeroepen vanuit ethernet Con hierbij maken wij een var
 //met een * zodat hiernaar verwezen kan worden aangezien dit de eerste waarde is
 //in de de struct
 //dus converterableStruct* = Ep.getBody();
 //converterableStruct[]
-beamStruct * EthernetProtocol::getBody(){  
-return b.getBeams();
-//return b.
+beamStruct *EthernetProtocol::getBody()
+{
+    return b.getBeams();
+    //return b.
 }
-

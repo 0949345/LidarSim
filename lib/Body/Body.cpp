@@ -1,6 +1,5 @@
 #include "Body.h"
 
-
 void Body::generateBeams()
 {
     for (int i = 0; i < beamAmount; i++)
@@ -13,12 +12,10 @@ void Body::generateBeams()
     }
 }
 
-void Body::splitToMaxSize()
-{
-}
+void Body::splitToMaxSize(){}
 
 int Body::checkSize()
-{ //sddsdssd
+{
 
     return 1;
 }
@@ -49,7 +46,7 @@ void Body::setBeam(int distance_, int RSSI_, byte status_, int beamNr)
     beams[beamNr].status = status_;
 }
 
-beamStruct * Body::getBeams()
+beamStruct *Body::getBeams()
 {
     return beams;
 }
