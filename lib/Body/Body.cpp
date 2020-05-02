@@ -3,7 +3,7 @@ Body::Body(int beamAmount)
 {
     Serial.print("Generating ");
     Serial.print(beamAmount);
-    Serial.println(" beams:");
+    Serial.println(" beams...");
     generateBeams(beamAmount);
     this->beamAmount = beamAmount;
 }
