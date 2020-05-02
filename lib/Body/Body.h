@@ -15,7 +15,7 @@ public:
 
 Body(int beamAmount);
 void setBeam(int distance_, int RSSI_, byte status_, int beamNr);
-void generateBeams();
+void generateBeams(int amount);
 void splitToMaxSize();
 int checkSize();
 };

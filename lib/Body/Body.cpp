@@ -10,12 +10,17 @@ void Body::setBeam(int distance_, int RSSI_, byte status_, int beamNr){
     beams[beamNr].status = status_;
 }
 
-void Body::generateBeams(){
-for (int i = 0; i < 9; i++)
+void Body::generateBeams(int amount){
+for (int i = 0; i < amount; i++)
 {
     beams[i].distance = rand() % 99 +1;
-    beams[i].RSSI = (rand() % 99 +1)/100;
+    float var = rand() % 99 +1;
+    //Serial.println(var);
+    beams[i].RSSI = (var/10);
     beams[i].status = rand() % 5 +1;
+    Serial.println(beams[i].distance);
+    Serial.println(beams[i].RSSI);
+    Serial.println(beams[i].status);
 }
 
 
@@ -28,7 +33,7 @@ void Body::splitToMaxSize(){
 
 }
 
-int Body::checkSize(){
+int Body::checkSize(){          //
 
 return 1;
 }
