@@ -23,11 +23,9 @@ void testFunctionJayden()
 }
 
 // Testen van keanu
-void testFunctionKeanu(){
-EthernetProtocol ethernet;
-
 void testFunctionKeanu()
 {
+  EthernetProtocol ethernet;
   Body b(2);
   b.generateBeams(9);
 }
