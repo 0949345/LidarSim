@@ -8,6 +8,7 @@ class EthernetProtocol
 
 private:
 Body b;
+Header h;
   //b
   //h
 protected:
