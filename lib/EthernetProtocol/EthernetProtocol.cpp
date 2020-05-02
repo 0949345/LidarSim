@@ -6,7 +6,8 @@ EthernetProtocol::EthernetProtocol()
 
 void EthernetProtocol::generate(int amount)
 {
-    Body b(amount);
+    b.setBeamAmount(6);
+    b.generateBeams();
     b.printBeams();
     //Header h;
 }

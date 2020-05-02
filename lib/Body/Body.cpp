@@ -1,23 +1,9 @@
 #include "Body.h"
-Body::Body(int beamAmount)
-{
-    Serial.print("Generating ");
-    Serial.print(beamAmount);
-    Serial.println(" beams...");
-    generateBeams(beamAmount);
-    this->beamAmount = beamAmount;
-}
 
-void Body::setBeam(int distance_, int RSSI_, byte status_, int beamNr)
-{
-    beams[beamNr].distance = distance_;
-    beams[beamNr].RSSI = RSSI_;
-    beams[beamNr].status = status_;
-}
 
-void Body::generateBeams(int amount)
+void Body::generateBeams()
 {
-    for (int i = 0; i < amount; i++)
+    for (int i = 0; i < beamAmount; i++)
     {
         beams[i].distance = rand() % 4000;
         float var = rand() % 99 + 1;
@@ -49,6 +35,21 @@ void Body::printBeams()
     }
 }
 
-beamStruct* Body::getBeams(){
-return beams;
+// Setters && getters
+
+void Body::setBeamAmount(int amount)
+{
+    this->beamAmount = amount;
+}
+
+void Body::setBeam(int distance_, int RSSI_, byte status_, int beamNr)
+{
+    beams[beamNr].distance = distance_;
+    beams[beamNr].RSSI = RSSI_;
+    beams[beamNr].status = status_;
+}
+
+beamStruct *Body::getBeams()
+{
+    return beams;
 }

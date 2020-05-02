@@ -8,14 +8,16 @@ class Body
 private:
   int beamAmount;
   beamStruct beams[10];
+  
 
 protected:
 public:
-  Body(int beamAmount);
-  void setBeam(int distance_, int RSSI_, byte status_, int beamNr);
-  void generateBeams(int amount);
+  void generateBeams();
   void splitToMaxSize();
   int checkSize();
   void printBeams();
-  beamStruct* getBeams();
+  beamStruct *getBeams();
+  //Setters && Getters
+  void setBeamAmount(int amount);
+  void setBeam(int distance_, int RSSI_, byte status_, int beamNr);
 };

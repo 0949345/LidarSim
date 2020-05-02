@@ -7,6 +7,7 @@ class EthernetProtocol
 {
 
 private:
+Body b;
   //b
   //h
 protected:
