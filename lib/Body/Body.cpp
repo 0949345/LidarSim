@@ -6,9 +6,6 @@ Body::Body(int beamAmount)
     Serial.println(" beams:");
     generateBeams(beamAmount);
     this->beamAmount = beamAmount;
-    //beamAmount = beamAmount_;
-    //beamStruct beams[beamAmount];
-    //setBeamAmount();
 }
 
 void Body::setBeam(int distance_, int RSSI_, byte status_, int beamNr)
