@@ -3,17 +3,14 @@
 #include "../Body/Body.h"
 #pragma once
 
-
-
-
-class EthernetProtocol {
+class EthernetProtocol
+{
 
 private:
   //b
   //h
 protected:
 public:
-
-EthernetProtocol();
-void generate();
+  EthernetProtocol();
+  void generate(int amount);
 };

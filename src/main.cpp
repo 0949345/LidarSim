@@ -7,19 +7,8 @@
 //Testen van Jayden
 void testFunctionJayden()
 {
-  String test = "testing";
-  Header classHeader;
-  Serial.println("Header:");
-  classHeader.generateHeader(8);
-  Serial.println(classHeader.getHeader().datagram_marker);
-  Serial.println(classHeader.getHeader().protocol);
-  Serial.println(classHeader.getHeader().version);
-  Serial.println(classHeader.getHeader().length);
-  Serial.println("=================\n");
-  Serial.println("Body:");
-  Body classBody(1);
-  classBody.generateBeams(6);
-  Serial.println("=================\n");
+  EthernetProtocol Ep;
+  Ep.generate(6);
 }
 
 // Testen van keanu

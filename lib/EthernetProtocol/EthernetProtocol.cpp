@@ -1,12 +1,11 @@
 #include "EthernetProtocol.h"
-EthernetProtocol::EthernetProtocol(){
-
+EthernetProtocol::EthernetProtocol()
+{
 
 }
 
-
-
-void EthernetProtocol::generate(){
-Body b(3);
-//Header h;
+void EthernetProtocol::generate(int amount)
+{
+    Body b(amount);
+    //Header h;
 }

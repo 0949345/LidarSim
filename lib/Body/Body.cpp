@@ -1,7 +1,7 @@
 #include "Body.h"
 Body::Body(int beamAmount)
 {
-    Serial.println("generating beams dadadadada");
+    Serial.print("Generating beams: ");
     Serial.println(beamAmount);
     generateBeams(beamAmount);
     // this.beamAmount = beamAmount;
