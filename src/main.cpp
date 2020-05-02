@@ -14,8 +14,14 @@ void setup()
 
 //Testen van Jayden
 void testFunctionJayden(){
+  String test = "testing";
   Header classHeader;
+  Serial.println("test");
+  classHeader.generateHeader(8);
   Serial.println(classHeader.getHeader().datagram_marker);
+  Serial.println(classHeader.getHeader().protocol);
+  Serial.println(classHeader.getHeader().version);
+  Serial.println(classHeader.getHeader().length);
 }
 
 // Testen van keanu
