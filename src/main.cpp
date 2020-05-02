@@ -3,26 +3,30 @@
 #include "../lib/Body/Body.h"
 #define onboardLed 13
 
-
 //Testen van Jayden
-void testFunctionJayden(){
+void testFunctionJayden()
+{
   String test = "testing";
   Header classHeader;
-  Serial.println("test");
+  Serial.println("Header:");
   classHeader.generateHeader(8);
   Serial.println(classHeader.getHeader().datagram_marker);
   Serial.println(classHeader.getHeader().protocol);
   Serial.println(classHeader.getHeader().version);
   Serial.println(classHeader.getHeader().length);
+  Serial.println("================\n");
+  Serial.println("Body:");
+  Body classBody(1);
+  classBody.generateBeams(6);
+  Serial.println("================\n");
 }
 
 // Testen van keanu
-void testFunctionKeanu(){
-Body b(2);
-b.generateBeams(9);
+void testFunctionKeanu()
+{
+  Body b(2);
+  b.generateBeams(9);
 }
-
-
 
 void setup()
 {
