@@ -12,5 +12,8 @@ private:
 
 protected:
 public:
+void convertHeader();
+void convertData();
+void sendData();
 EthernetConn();
 };
