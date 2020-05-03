@@ -10,18 +10,20 @@ class EthernetConn
 
 private:
   int headerLength = 0;
+  int arrayCounterHeeader;
+  char intArray[12];
+  char headerArray[256];
+
+  int beamAmount = 6;
+  char bodyArray[256];
+  int arrayCounterBody = 0;
 
   EthernetProtocol Ep;
-   int beamAmount = 6;
-   char bodyArray[256];
-   char intArray[12];
-   char headerArray[256];
-   int arrayCounterBody = 0;
+
 protected:
 public:
-
-void convertHeader();
-void convertBody();
-void sendData();
-EthernetConn();
+  void convertHeader();
+  void convertBody();
+  void sendData();
+  EthernetConn();
 };
