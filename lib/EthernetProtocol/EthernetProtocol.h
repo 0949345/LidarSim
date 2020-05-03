@@ -10,6 +10,9 @@ class EthernetProtocol
 private:
   Body b;
   Header h;
+
+  bool isFirstHeader = true;
+  bool isDataSplitted = false;
   //b
   //h
 protected:

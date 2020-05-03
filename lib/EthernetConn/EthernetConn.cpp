@@ -4,12 +4,9 @@ EthernetConn::EthernetConn()
 
     Ep.generate(beamAmount);
     convertData();
+    convertHeader();
 }
 
-void EthernetConn::convertHeader()
-{
-    Ep.getHeader();
-}
 
 void EthernetConn::convertData()
 {
@@ -74,6 +71,21 @@ void EthernetConn::convertData()
         Serial.print(bodyArray[l]);
     }
 }
+
+
+void EthernetConn::convertHeader()
+{
+  //tell de characters die nodig zijn voor de header array
+  headerLength += Ep.getHeader().datagram_marker.length();
+  headerLength += Ep.getHeader().protocol.length();
+  headerLength += String(Ep.getHeader().version).length();
+  headerLength += String(Ep.getHeader().length).length();
+  headerLength += String(Ep.getHeader().fragment_offset).length();
+
+  
+}
+
+
 
 void EthernetConn::sendData()
 {

@@ -9,6 +9,8 @@ class EthernetConn
 {
 
 private:
+  int headerLength = 0;
+
   EthernetProtocol Ep;
    int beamAmount = 6;
    char bodyArray[256];
