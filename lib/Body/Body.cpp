@@ -1,9 +1,7 @@
 #include "Body.h"
-#include <time.h>
 
 void Body::generateBeams()
 {
-  srand((unsigned) time(0));
     for (int i = 0; i < beamAmount; i++)
     {
         beams[i].distance = rand() % 4000;
