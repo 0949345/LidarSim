@@ -3,7 +3,7 @@ EthernetConn::EthernetConn()
 {
  
     Ep.generate(beamAmount);
-    convertData();
+    convertBody();
 
 }
 
@@ -13,7 +13,7 @@ Ep.getHeader();
 
 }
 
-void EthernetConn::convertData(){
+void EthernetConn::convertBody(){
     for (int i = 0; i < beamAmount; i++)
     {   
 
