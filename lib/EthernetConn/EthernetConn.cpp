@@ -34,7 +34,7 @@ void EthernetConn::convertData()
         Serial.println("aaaaa");
 
 
-        for (int j = 0; j < valLen; j++)
+        for (int j = 0; j < 3; j++)
         {
             if (j == 0)
             {
@@ -51,7 +51,7 @@ void EthernetConn::convertData()
                 someValue = status__;
                 itoa(status__,intArray,10);
             }
-            //hier een 3x for loop
+           
 
             if (someValue > 9999)
                 valLen = 5;
