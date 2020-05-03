@@ -31,7 +31,6 @@ void EthernetConn::convertBody()
         int distance__ = Ep.getBody()[i].distance;
         int RSSI__ = Ep.getBody()[i].RSSI;
         int status__ = Ep.getBody()[i].status;
-        Serial.println("aaaaa");
 
 
         for (int j = 0; j < 3; j++)
@@ -40,16 +39,19 @@ void EthernetConn::convertBody()
             {
                 someValue = distance__;
                 itoa(distance__, intArray, 10);
+
             }
             else if (j == 1)
             {
                 someValue = RSSI__;
                 itoa(RSSI__,intArray,10);
+
             }
             else
             {
                 someValue = status__;
                 itoa(status__,intArray,10);
+
             }
            
 
@@ -64,11 +66,9 @@ void EthernetConn::convertBody()
             else
                 valLen = 1;
 
-            for (int j = 0; j < valLen; j++)
+            for (int l = 0; l < valLen; l++)
             {
-                Serial.print("valLen: ");
-                Serial.println(valLen);
-                bodyArray[arrayCounterBody] = intArray[j];
+                bodyArray[arrayCounterBody] = intArray[l];
                 //Serial.println(bodyArray[arrayCounterBody]);
                 arrayCounterBody++;
             }
