@@ -16,7 +16,8 @@ public:
   int checkSize();
   void printBeams();
   //Setters && Getters
-  beamStruct *getBeams();
   void setBeamAmount(int amount);
+  int getBeamAmount();
+  beamStruct *getBeams();
   void setBeam(int distance_, int RSSI_, byte status_, int beamNr);
 };

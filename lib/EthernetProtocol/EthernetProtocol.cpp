@@ -8,8 +8,21 @@ void EthernetProtocol::generate(int amount)
     b.setBeamAmount(6);
     b.generateBeams();
     b.printBeams();
-    int test = b.getBeams()[0].distance;
-    Serial.println(test);
+
+    if (isFirstHeader)
+    { //Als de eerste header gemaakt moet worden
+        if (isDataSplitted)
+        { // als de data is gesplits dan is de size de max data grote
+            //h.generateFirstHeader(maxDatasize)
+        }
+        else
+        { // als data niet is gesplits dan is de grote het aantal beams
+            h.generateFirstHeader(b.getBeamAmount());
+        }
+    }
+    else
+    { // als de eerste header al gemaakt is 
+    }
     //Header h;
 }
 
