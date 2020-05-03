@@ -9,9 +9,13 @@ class EthernetConn
 {
 
 private:
-
+  EthernetProtocol Ep;
+   int beamAmount = 6;
+   char bodyArray[256];
+   char headerArray[256];
 protected:
 public:
+
 void convertHeader();
 void convertData();
 void sendData();

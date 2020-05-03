@@ -8,7 +8,7 @@
 #define error 4
 #define warning 5
 
-
+  
 
 
 struct headerStruct {
@@ -23,6 +23,6 @@ struct headerStruct {
 struct beamStruct {
     int distance;       //in mm
     int RSSI;           //intensity
-    byte status;        //status = geen licht/blind/reflector/Error/Warning 
+    int status;        //status = geen licht/blind/reflector/Error/Warning 
 };
 
