@@ -14,7 +14,7 @@ void testFunctionJayden()
 // Testen van keanu
 void testFunctionKeanu()
 {
-  EthernetProtocol ethernet;
+  //EthernetProtocol ethernet;
 }
 
 void setup()
