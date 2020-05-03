@@ -12,7 +12,9 @@ private:
   EthernetProtocol Ep;
    int beamAmount = 6;
    char bodyArray[256];
+   char intArray[12];
    char headerArray[256];
+   int arrayCounterBody = 0;
 protected:
 public:
 
