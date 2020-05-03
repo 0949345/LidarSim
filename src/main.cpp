@@ -2,19 +2,19 @@
 #include "../lib/Header/Header.h"
 #include "../lib/Body/Body.h"
 #include "../lib/EthernetProtocol/EthernetProtocol.h"
+#include "EthernetConn.h"
 #define onboardLed 13
 
 //Testen van Jayden
 void testFunctionJayden()
 {
-  EthernetProtocol Ep;
-  Ep.generate(6);
+
 }
 
 // Testen van keanu
 void testFunctionKeanu()
 {
-  //EthernetProtocol ethernet;
+  EthernetConn ethernet;
 }
 
 void setup()
