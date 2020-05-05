@@ -41,6 +41,17 @@ void Header::printHeader()
     Serial.println(header.scanNumber);
     Serial.println(header.timeStamp.date);
     Serial.println(header.timeStamp.time);
+
+    Serial.println(header.deviceStatus.offset);
+    Serial.println(header.deviceStatus.size);
+    Serial.println(header.configurationData.offset);
+    Serial.println(header.configurationData.size);
+    Serial.println(header.measurementData.offset);
+    Serial.println(header.measurementData.size);
+    Serial.println(header.fieldInterruption.offset);
+    Serial.println(header.fieldInterruption.size);
+    Serial.println(header.applicationData.offset);
+    Serial.println(header.applicationData.size);
 }
 //  Getters & Setters
 
@@ -54,7 +65,7 @@ void Header::setHeader(headerStruct value)
     header = value;
 }
 
-void Header::setDeviceStatusOffset(int size)
+void Header::setFirstDataBlockOffset(int size)
 {
     if (size == 0)
     {
@@ -70,7 +81,7 @@ void Header::setDeviceStatusOffset(int size)
     }
 }
 
-void Header::setDataBlockOffset(int size, offsetBlock dataBlock)
+void Header::setDataBlockOffset( offsetBlock dataBlock, int size)
 {
     if (size == 0)
     {

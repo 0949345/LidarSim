@@ -17,16 +17,27 @@ void EthernetProtocol::generate(int amount)
         }
         else
         { // als data niet is gesplits dan is de grote het aantal beams
-            h.generateHeaderStart();
+            generateHeader();
         }
     }
     else
-    { // als de eerste header al gemaakt is 
+    { // als de eerste header al gemaakt is
     }
     //Header h;
 }
 
-void EthernetProtocol::printHeader(){
+void EthernetProtocol::generateHeader()
+{
+    h.generateHeaderStart();
+    h.setFirstDataBlockOffset(0);
+    h.setDataBlockOffset(getHeader().configurationData, 0);
+    h.setDataBlockOffset(getHeader().measurementData, 0);
+    h.setDataBlockOffset(getHeader().fieldInterruption, 0);
+    h.setDataBlockOffset(getHeader().applicationData, 0);
+}
+
+void EthernetProtocol::printHeader()
+{
     h.printHeader();
 }
 

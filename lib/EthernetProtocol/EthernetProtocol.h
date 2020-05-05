@@ -19,6 +19,7 @@ protected:
 public:
   EthernetProtocol();
   void generate(int amount);
+  void generateHeader();
 
   void printHeader();
   //Setters && Getters

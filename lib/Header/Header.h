@@ -19,6 +19,6 @@ public:
     headerStruct getHeader();
     void setHeader(headerStruct value); //not needed
 
-    void setDeviceStatusOffset(int size);
-    void setDataBlockOffset(int size, offsetBlock dataBlock);
+    void setFirstDataBlockOffset(int size);
+    void setDataBlockOffset(offsetBlock dataBlockint, int size);
 };
