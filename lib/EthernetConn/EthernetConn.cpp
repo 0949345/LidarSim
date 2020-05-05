@@ -14,11 +14,11 @@ EthernetConn::EthernetConn()
 void EthernetConn::convertHeader()
 {
   //tell de characters die nodig zijn voor de header array
-  headerLength += Ep.getHeader().datagram_marker.length();
-  headerLength += Ep.getHeader().protocol.length();
-  headerLength += String(Ep.getHeader().version).length();
-  headerLength += String(Ep.getHeader().length).length();
-  headerLength += String(Ep.getHeader().fragment_offset).length();
+//   headerLength += Ep.getHeader().datagram_marker.length();
+//   headerLength += Ep.getHeader().protocol.length();
+//   headerLength += String(Ep.getHeader().version).length();
+//   headerLength += String(Ep.getHeader().length).length();
+//   headerLength += String(Ep.getHeader().fragment_offset).length();
 
   
 }
