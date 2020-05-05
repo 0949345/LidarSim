@@ -12,7 +12,7 @@ void Header::generateHeaderStart()
     header.channelNumber = 2;
     header.sequenceNumber = 213;
     header.scanNumber = 321;
-    header.timeStamp.date = pow(millis(), 3);
+    header.timeStamp.date = millis();
     header.timeStamp.time = millis();
 
     header.deviceStatus.offset = 0;
@@ -81,14 +81,14 @@ void Header::setFirstDataBlockOffset(int size)
     }
 }
 
-void Header::setDataBlockOffset( offsetBlock dataBlock, int size)
+void Header::setDataBlockOffset(offsetBlock dataBlock, int size)
 {
     if (size == 0)
     {
         dataBlock.offset = 0;
         dataBlock.size = 0;
     }
-    else
+    else if (size > 0)
     {
         dataBlock.offset = startOffset;
         dataBlock.size = size;

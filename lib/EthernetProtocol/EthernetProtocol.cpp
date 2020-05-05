@@ -5,7 +5,7 @@ EthernetProtocol::EthernetProtocol()
 
 void EthernetProtocol::generate(int amount)
 {
-    b.setBeamAmount(6);
+    b.setBeamAmount(amount);
     b.generateBeams();
     b.printBeams();
 
@@ -17,7 +17,7 @@ void EthernetProtocol::generate(int amount)
         }
         else
         { // als data niet is gesplits dan is de grote het aantal beams
-            generateHeader();
+            generateHeader(0, 44, 0, 0, 0);
         }
     }
     else
@@ -26,14 +26,14 @@ void EthernetProtocol::generate(int amount)
     //Header h;
 }
 
-void EthernetProtocol::generateHeader()
+void EthernetProtocol::generateHeader(int device, int config, int measurement, int fieldInterruption, int application)
 {
     h.generateHeaderStart();
-    h.setFirstDataBlockOffset(0);
-    h.setDataBlockOffset(getHeader().configurationData, 0);
-    h.setDataBlockOffset(getHeader().measurementData, 0);
-    h.setDataBlockOffset(getHeader().fieldInterruption, 0);
-    h.setDataBlockOffset(getHeader().applicationData, 0);
+    h.setFirstDataBlockOffset(device);
+    h.setDataBlockOffset(getHeader().configurationData, config);
+    h.setDataBlockOffset(getHeader().measurementData, measurement);
+    h.setDataBlockOffset(getHeader().fieldInterruption, fieldInterruption);
+    h.setDataBlockOffset(getHeader().applicationData, application);
 }
 
 void EthernetProtocol::printHeader()
