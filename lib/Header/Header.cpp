@@ -1,27 +1,35 @@
 #include "Header.h"
 
-void Header::generateFirstHeader(int size) { //biggest part of the header can be hardcoded
-    // header.datagram_marker = "MS3"; //TO DO: wordt niet goed overgedragen
-    // header.protocol = "MD"; //TO DO: wordt niet goed overgedragen
-    // header.version = 1.0;
-    // header.length = size;
-    // header.fragment_offset = 0;
+void Header::generateHeaderStart() { //biggest part of the header can be hardcoded
+    header.version.version = 1;
+    header.version.MajorVersion = 2;
+    header.version.MinorVersion = 3;
+    header.version.release = 456;
+
+    header.serialNumber = 4653;
+    header.serialNumberSystemPlug = 678;
+    header.channelNumber = 2;
+    header.sequenceNumber = 213;
+    header.scanNumber = 321;
+    header.timeStamp.date = 24345;
+    header.timeStamp.time = 26864;
 }
-void Header::generateNonFirstHeader(int size, int prevSize, int prevOffset) { //biggest part of the header can be hardcoded
-    // header.datagram_marker = 1; //TO DO: wordt niet goed overgedragen
-    // header.protocol = 2; //TO DO: wordt niet goed overgedragen
-    // header.version = 1.0;
-    // header.length = size;
-    // header.fragment_offset = prevSize + prevOffset;
-}
+
 
 
 void Header::printHeader(){
-    // Serial.println(header.datagram_marker);
-    // Serial.println(header.protocol);
-    // Serial.println(header.version);
-    // Serial.println(header.length);
-    // Serial.println(header.fragment_offset);
+    Serial.println(header.version.version);
+    Serial.println(header.version.MajorVersion);
+    Serial.println(header.version.MinorVersion);
+    Serial.println(header.version.release);
+
+    Serial.println(header.serialNumber);
+    Serial.println(header.serialNumberSystemPlug);
+    Serial.println(header.channelNumber);
+    Serial.println(header.sequenceNumber);
+    Serial.println(header.scanNumber);
+    Serial.println(header.timeStamp.date);
+    Serial.println(header.timeStamp.time);
 }
 //  Getters & Setters
 

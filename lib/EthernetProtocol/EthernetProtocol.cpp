@@ -17,14 +17,13 @@ void EthernetProtocol::generate(int amount)
         }
         else
         { // als data niet is gesplits dan is de grote het aantal beams
-            h.generateFirstHeader(b.getBeamAmount());
+            h.generateHeaderStart();
         }
     }
     else
     { // als de eerste header al gemaakt is 
     }
     //Header h;
-    
 }
 
 void EthernetProtocol::printHeader(){
@@ -33,7 +32,7 @@ void EthernetProtocol::printHeader(){
 
 headerStruct EthernetProtocol::getHeader()
 {
-    return h.getHeader();
+    // return h.getHeader();
 }
 //moet aangeroepen kunnen worden door de ethernet connection
 //om de body te krijgen zodat deze weer omgezet kan worden

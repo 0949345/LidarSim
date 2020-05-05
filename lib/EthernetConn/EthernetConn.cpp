@@ -4,23 +4,15 @@ EthernetConn::EthernetConn()
 
     Ep.generate(beamAmount);
     convertBody();
-    convertHeader();
+    // convertHeader();
     Serial.println("\n\n");
     Ep.printHeader();
 }
 
-
-
 void EthernetConn::convertHeader()
 {
-  //tell de characters die nodig zijn voor de header array
-//   headerLength += Ep.getHeader().datagram_marker.length();
-//   headerLength += Ep.getHeader().protocol.length();
-//   headerLength += String(Ep.getHeader().version).length();
-//   headerLength += String(Ep.getHeader().length).length();
-//   headerLength += String(Ep.getHeader().fragment_offset).length();
-
-  
+    //tell de characters die nodig zijn voor de header array
+    //headerLength += Ep.getHeader().datagram_marker.length();
 }
 
 void EthernetConn::convertBody()
@@ -34,28 +26,23 @@ void EthernetConn::convertBody()
         int RSSI__ = Ep.getBody()[i].RSSI;
         int status__ = Ep.getBody()[i].status;
 
-
         for (int j = 0; j < 3; j++)
         {
             if (j == 0)
             {
                 someValue = distance__;
                 itoa(distance__, intArray, 10);
-
             }
             else if (j == 1)
             {
                 someValue = RSSI__;
-                itoa(RSSI__,intArray,10);
-
+                itoa(RSSI__, intArray, 10);
             }
             else
             {
                 someValue = status__;
-                itoa(status__,intArray,10);
-
+                itoa(status__, intArray, 10);
             }
-           
 
             if (someValue > 9999)
                 valLen = 5;
