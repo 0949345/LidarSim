@@ -8,7 +8,6 @@ void EthernetProtocol::generate(int amount)
     b.setBeamAmount(6);
     b.generateBeams();
     b.printBeams();
-    h.printHeader();
 
     if (isFirstHeader)
     { //Als de eerste header gemaakt moet worden
@@ -25,6 +24,7 @@ void EthernetProtocol::generate(int amount)
     { // als de eerste header al gemaakt is 
     }
     //Header h;
+    h.printHeader();
 }
 
 headerStruct EthernetProtocol::getHeader()
