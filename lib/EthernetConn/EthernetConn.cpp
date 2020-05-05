@@ -5,6 +5,7 @@ EthernetConn::EthernetConn()
     Ep.generate(beamAmount);
     convertBody();
     convertHeader();
+    Serial.println("\n\n");
     Ep.printHeader();
 }
 
