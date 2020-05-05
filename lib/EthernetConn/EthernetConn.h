@@ -17,7 +17,7 @@ private:
   int beamAmount = 6;
   char bodyArray[256];
   int arrayCounterBody = 0;
-
+  boolean rawBodyData[1024];
   EthernetProtocol Ep;
 
 protected:
@@ -25,5 +25,8 @@ public:
   void convertHeader();
   void convertBody();
   void sendData();
+  //void byteToBit();
+  //void fillBit();
   EthernetConn();
+  long convertToBinary16Byte(long int n);
 };
