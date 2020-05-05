@@ -4,14 +4,16 @@
 #pragma once
 #define LIDARSIM_HEADER_H
 
-class Header{
+class Header
+{
 private:
     headerStruct header;
+
 protected:
 public:
     void generateFirstHeader(int size);
     void generateNonFirstHeader(int size, int prevSize, int prevOffsetd);
-
+    void printHeader();
     headerStruct getHeader();
     void setHeader(headerStruct value); //not sure if needed
 };

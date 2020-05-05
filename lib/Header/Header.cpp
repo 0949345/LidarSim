@@ -15,6 +15,14 @@ void Header::generateNonFirstHeader(int size, int prevSize, int prevOffset) { //
     header.fragment_offset = prevSize + prevOffset;
 }
 
+
+void Header::printHeader(){
+    Serial.println(header.datagram_marker);
+    Serial.println(header.protocol);
+    Serial.println(header.version);
+    Serial.println(header.length);
+    Serial.println(header.fragment_offset);
+}
 //  Getters & Setters
 
 headerStruct Header::getHeader(){
