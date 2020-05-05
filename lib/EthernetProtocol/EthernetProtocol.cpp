@@ -30,10 +30,10 @@ void EthernetProtocol::generateHeader(int device, int config, int measurement, i
 {
     h.generateHeaderStart();
     h.setFirstDataBlockOffset(device);
-    h.setDataBlockOffset(getHeader().configurationData, config);
-    h.setDataBlockOffset(getHeader().measurementData, measurement);
-    h.setDataBlockOffset(getHeader().fieldInterruption, fieldInterruption);
-    h.setDataBlockOffset(getHeader().applicationData, application);
+    h.setDataBlockOffset(1, config);
+    h.setDataBlockOffset(2, measurement);
+    h.setDataBlockOffset(3, fieldInterruption);
+    h.setDataBlockOffset(4, application);
 }
 
 void EthernetProtocol::printHeader()

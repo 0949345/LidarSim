@@ -81,17 +81,62 @@ void Header::setFirstDataBlockOffset(int size)
     }
 }
 
-void Header::setDataBlockOffset(offsetBlock dataBlock, int size)
+void Header::setDataBlockOffset(int dataBlock, int size)
 {
-    if (size == 0)
+    if (dataBlock == 1)
     {
-        dataBlock.offset = 0;
-        dataBlock.size = 0;
+        if (size == 0)
+        {
+            header.configurationData.offset = 0;
+            header.configurationData.size = 0;
+        }
+        else if (size > 0)
+        {
+            header.configurationData.offset = currentOffset;
+            header.configurationData.size = size;
+            currentOffset = currentOffset + size;
+        }
     }
-    else if (size > 0)
-    {
-        dataBlock.offset = startOffset;
-        dataBlock.size = size;
-        currentOffset = startOffset + size;
-    }
+    else if (dataBlock == 2)
+        {
+            if (size == 0)
+            {
+                header.measurementData.offset = 0;
+                header.measurementData.size = 0;
+            }
+            else if (size > 0)
+            {
+                header.measurementData.offset = currentOffset;
+                header.measurementData.size = size;
+                currentOffset = currentOffset + size;
+            }
+        }
+    else if (dataBlock == 3)
+        {
+            if (size == 0)
+            {
+                header.fieldInterruption.offset = 0;
+                header.fieldInterruption.size = 0;
+            }
+            else if (size > 0)
+            {
+                header.fieldInterruption.offset = currentOffset;
+                header.fieldInterruption.size = size;
+                currentOffset = currentOffset + size;
+            }
+        }
+    else if (dataBlock == 4)
+        {
+            if (size == 0)
+            {
+                header.applicationData.offset = 0;
+                header.applicationData.size = 0;
+            }
+            else if (size > 0)
+            {
+                header.applicationData.offset = currentOffset;
+                header.applicationData.size = size;
+                currentOffset = currentOffset + size;
+            }
+        }
 }
