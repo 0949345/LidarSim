@@ -17,7 +17,7 @@ void EthernetProtocol::generate(int amount)
         }
         else
         { // als data niet is gesplits dan is de grote het aantal beams
-            generateHeader(0, 44, 0, 0, 0);
+        generateHeader(11, 22, 33, 44, 55);
         }
     }
     else
