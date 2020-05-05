@@ -32,7 +32,7 @@ void EthernetProtocol::printHeader(){
 
 headerStruct EthernetProtocol::getHeader()
 {
-    // return h.getHeader();
+    return h.getHeader();
 }
 //moet aangeroepen kunnen worden door de ethernet connection
 //om de body te krijgen zodat deze weer omgezet kan worden

@@ -8,6 +8,8 @@ class Header
 {
 private:
     headerStruct header;
+    int startOffset = 32;
+    int currentOffset;
 
 protected:
 public:
@@ -15,6 +17,8 @@ public:
     void generateNonFirstHeader(int size, int prevSize, int prevOffsetd);
     void printHeader();
     headerStruct getHeader();
-    void setHeader(headerStruct value); //not sure if needed
-};
+    void setHeader(headerStruct value); //not needed
 
+    void setDeviceStatusOffset(int size);
+    void setDataBlockOffset(int size, offsetBlock dataBlock);
+};
