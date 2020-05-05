@@ -24,12 +24,15 @@ void EthernetProtocol::generate(int amount)
     { // als de eerste header al gemaakt is 
     }
     //Header h;
+    
+}
+
+void EthernetProtocol::printHeader(){
     h.printHeader();
 }
 
 headerStruct EthernetProtocol::getHeader()
 {
-
     return h.getHeader();
 }
 //moet aangeroepen kunnen worden door de ethernet connection

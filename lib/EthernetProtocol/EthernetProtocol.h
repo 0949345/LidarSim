@@ -20,6 +20,7 @@ public:
   EthernetProtocol();
   void generate(int amount);
 
+  void printHeader();
   //Setters && Getters
   beamStruct *getBody();
   headerStruct getHeader();
