@@ -4,10 +4,9 @@ void Body::generateBeams()
 {
     for (int i = 0; i < beamAmount; i++)
     {
-        beams[i].distance = rand() % 4000;
-        float var = rand() % 99 + 1;
+        beams[i].distance = rand() % 65535;
         //Serial.println(var);
-        beams[i].RSSI = (var / 10);
+        beams[i].RSSI = (rand() % 256)-128;
         beams[i].status = rand() % 5 + 1;
     }
 }
