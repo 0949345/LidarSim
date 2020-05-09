@@ -20,7 +20,7 @@ public:
     void generateNonFirstHeader(int size, int prevSize, int prevOffsetd);
     void printHeader();
     headerStruct getHeader();
-    void setHeader(headerStruct value); //not needed
+    void setHeader(headerStruct value); //not needed??
 
     void setFirstDataBlockOffset(int size);
     void setDataBlockOffset(int dataBlockint, int size);
