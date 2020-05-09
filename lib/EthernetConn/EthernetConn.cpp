@@ -17,15 +17,15 @@ void EthernetConn::convertHeader()
 
 void EthernetConn::convertBody()
 {
+    convertToBinary16BitBigEnd(32768);
+    convertToBinary16BitBigEnd(65536);
+    convertToBinary16BitBigEnd(38999);
     int valLen = 0;
     int someValue = 0;
     for (int i = 0; i < beamAmount; i++)
     {
         Serial.println();
-        convertToBinary16Byte(32768);
-        Serial.println();
-        convertToBinary16Byte(65536);
-        Serial.println();
+
         int distance__ = Ep.getBody()[i].distance;
         int RSSI__ = Ep.getBody()[i].RSSI;
         int status__ = Ep.getBody()[i].status;
@@ -35,7 +35,7 @@ void EthernetConn::convertBody()
             if (j == 0)
             {
                 someValue = distance__;
-               // Serial.println(convertDecimalToBinary(someValue));
+                // Serial.println(convertDecimalToBinary(someValue));
                 itoa(distance__, intArray, 10);
             }
             else if (j == 1)
@@ -77,7 +77,7 @@ void EthernetConn::convertBody()
     Serial.println("----------");
     for (int l = 0; l < arrayCounterBody; l++)
     {
-       // Serial.print(bodyArray[l]);
+        // Serial.print(bodyArray[l]);
     }
 }
 
@@ -85,31 +85,38 @@ void EthernetConn::sendData()
 {
 }
 
-
-long EthernetConn::convertToBinary16Byte(long int n)
+boolean EthernetConn::convertToBinary16BitBigEnd(long int n)
 {
     boolean tempBoolArray[16];
-    long binaryNumber = 0;
-if(n>=65536){
-    for (int s = 0; s < 16; s++)
-    {
-        Serial.print("een");
-      tempBoolArray[s] = 1;     //65535
-      n -= 65536;
-    }   
-}else if (n>=32768){
-    tempBoolArray[0] = 1;
-    n -=32768;
-}
-
-
-
 
     for (int s = 0; s < 16; s++)
     {
-      Serial.print(tempBoolArray[s]);
-      tempBoolArray[s] = 0;
-    } 
+        tempBoolArray[s] = 0;
+    }
 
-    return binaryNumber;
+    Serial.println("---");
+    for (int x = 15; x > -1; x--)
+    {
+        if (n >= pow(2, x))
+        {
+            if (n >= 65536)
+            {
+                //alles op 1 zetten
+                for (int k = 0; k < 16; k++)
+                {
+                    tempBoolArray[k] = 1; //65535
+                }
+            }
+            n = n - pow(2, x);
+            tempBoolArray[x] = 1;
+        }
+    }
+
+    //printen van de variablen
+    for (int s = 0; s < 16; s++)
+    {
+        Serial.print(tempBoolArray[s]);
+    }
+    Serial.println();
+    return tempBoolArray;
 }

@@ -5,7 +5,7 @@ EthernetProtocol::EthernetProtocol()
 
 void EthernetProtocol::generate(int amount)
 {
-    b.setBeamAmount(6);
+    b.setBeamAmount(amount);
     b.generateBeams();
     b.printBeams();
 
@@ -17,22 +17,33 @@ void EthernetProtocol::generate(int amount)
         }
         else
         { // als data niet is gesplits dan is de grote het aantal beams
-            h.generateHeaderStart();
+        generateHeader(11, 22, 33, 44, 55);
         }
     }
     else
-    { // als de eerste header al gemaakt is 
+    { // als de eerste header al gemaakt is
     }
     //Header h;
 }
 
-void EthernetProtocol::printHeader(){
+void EthernetProtocol::generateHeader(int device, int config, int measurement, int fieldInterruption, int application)
+{
+    h.generateHeaderStart();
+    h.setFirstDataBlockOffset(device);
+    h.setDataBlockOffset(1, config);
+    h.setDataBlockOffset(2, measurement);
+    h.setDataBlockOffset(3, fieldInterruption);
+    h.setDataBlockOffset(4, application);
+}
+
+void EthernetProtocol::printHeader()
+{
     h.printHeader();
 }
 
 headerStruct EthernetProtocol::getHeader()
 {
-    // return h.getHeader();
+    return h.getHeader();
 }
 //moet aangeroepen kunnen worden door de ethernet connection
 //om de body te krijgen zodat deze weer omgezet kan worden

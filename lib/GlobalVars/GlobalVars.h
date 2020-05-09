@@ -2,6 +2,7 @@
 #pragma once
 #include <arduino.h>
 #include <string.h>
+#include <math.h>
 // #include <EEPROM.h>
 #define no_light 1
 #define blind 2
@@ -27,7 +28,7 @@ struct offsetBlock
 };
 struct timeStruct
 {
-    int date;
+    unsigned int date;
     int time;
 };
 

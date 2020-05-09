@@ -3,6 +3,7 @@
 #include "../GlobalVars/GlobalVars.h"
 #include "../Body/Body.h"
 #include "../EthernetProtocol/EthernetProtocol.h"
+#include <math.h>       /* pow */
 #pragma once
 
 class EthernetConn
@@ -28,5 +29,5 @@ public:
   //void byteToBit();
   //void fillBit();
   EthernetConn();
-  long convertToBinary16Byte(long int n);
+  boolean convertToBinary16BitBigEnd(long int n);
 };

@@ -1,6 +1,7 @@
 #include "Header.h"
 
-void Header::generateHeaderStart() { //biggest part of the header can be hardcoded
+void Header::generateHeaderStart()
+{ //biggest part of the header can be hardcoded
     header.version.version = 1;
     header.version.MajorVersion = 2;
     header.version.MinorVersion = 3;
@@ -11,13 +12,23 @@ void Header::generateHeaderStart() { //biggest part of the header can be hardcod
     header.channelNumber = 2;
     header.sequenceNumber = 213;
     header.scanNumber = 321;
-    header.timeStamp.date = 24345;
-    header.timeStamp.time = 26864;
+    header.timeStamp.date = millis();
+    header.timeStamp.time = millis();
+
+    header.deviceStatus.offset = 0;
+    header.deviceStatus.size = 0;
+    header.configurationData.offset = 0;
+    header.configurationData.size = 0;
+    header.measurementData.offset = 0;
+    header.measurementData.size = 0;
+    header.fieldInterruption.offset = 0;
+    header.fieldInterruption.size = 0;
+    header.applicationData.offset = 0;
+    header.applicationData.size = 0;
 }
 
-
-
-void Header::printHeader(){
+void Header::printHeader()
+{
     Serial.println(header.version.version);
     Serial.println(header.version.MajorVersion);
     Serial.println(header.version.MinorVersion);
@@ -30,13 +41,102 @@ void Header::printHeader(){
     Serial.println(header.scanNumber);
     Serial.println(header.timeStamp.date);
     Serial.println(header.timeStamp.time);
+
+    Serial.println(header.deviceStatus.offset);
+    Serial.println(header.deviceStatus.size);
+    Serial.println(header.configurationData.offset);
+    Serial.println(header.configurationData.size);
+    Serial.println(header.measurementData.offset);
+    Serial.println(header.measurementData.size);
+    Serial.println(header.fieldInterruption.offset);
+    Serial.println(header.fieldInterruption.size);
+    Serial.println(header.applicationData.offset);
+    Serial.println(header.applicationData.size);
 }
 //  Getters & Setters
 
-headerStruct Header::getHeader(){
+headerStruct Header::getHeader()
+{
     return header;
 }
 
-void Header::setHeader(headerStruct value){
+void Header::setHeader(headerStruct value)
+{
     header = value;
+}
+
+void Header::setFirstDataBlockOffset(int size)
+{
+    if (size == 0)
+    {
+        header.deviceStatus.offset = 0;
+        header.deviceStatus.size = 0;
+        currentOffset = startOffset;
+    }
+    else
+    {
+        header.deviceStatus.offset = startOffset;
+        header.deviceStatus.size = size;
+        currentOffset = startOffset + size;
+    }
+}
+
+void Header::setDataBlockOffset(int dataBlock, int size)
+{
+    if (dataBlock == 1)
+    {
+        if (size == 0)
+        {
+            header.configurationData.offset = 0;
+            header.configurationData.size = 0;
+        }
+        else if (size > 0)
+        {
+            header.configurationData.offset = currentOffset;
+            header.configurationData.size = size;
+            currentOffset = currentOffset + size;
+        }
+    }
+    else if (dataBlock == 2)
+        {
+            if (size == 0)
+            {
+                header.measurementData.offset = 0;
+                header.measurementData.size = 0;
+            }
+            else if (size > 0)
+            {
+                header.measurementData.offset = currentOffset;
+                header.measurementData.size = size;
+                currentOffset = currentOffset + size;
+            }
+        }
+    else if (dataBlock == 3)
+        {
+            if (size == 0)
+            {
+                header.fieldInterruption.offset = 0;
+                header.fieldInterruption.size = 0;
+            }
+            else if (size > 0)
+            {
+                header.fieldInterruption.offset = currentOffset;
+                header.fieldInterruption.size = size;
+                currentOffset = currentOffset + size;
+            }
+        }
+    else if (dataBlock == 4)
+        {
+            if (size == 0)
+            {
+                header.applicationData.offset = 0;
+                header.applicationData.size = 0;
+            }
+            else if (size > 0)
+            {
+                header.applicationData.offset = currentOffset;
+                header.applicationData.size = size;
+                currentOffset = currentOffset + size;
+            }
+        }
 }
