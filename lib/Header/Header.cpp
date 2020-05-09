@@ -1,7 +1,7 @@
 #include "Header.h"
 
 void Header::generateHeaderStart()
-{ //biggest part of the header can be hardcoded
+{   // A small part of the header can be hardcoded
     header.version.version = 1;
     header.version.MajorVersion = 2;
     header.version.MinorVersion = 3;
@@ -10,11 +10,12 @@ void Header::generateHeaderStart()
     header.serialNumber = 4653;
     header.serialNumberSystemPlug = 678;
     header.channelNumber = 2;
-    header.sequenceNumber = 213;
-    header.scanNumber = 321;
+    // This part cannot be hardcoded
+    header.sequenceNumber = sequencceCounter;
+    header.scanNumber = scanCounter;
     header.timeStamp.date = millis();
     header.timeStamp.time = millis();
-
+    
     header.deviceStatus.offset = 0;
     header.deviceStatus.size = 0;
     header.configurationData.offset = 0;
@@ -25,10 +26,14 @@ void Header::generateHeaderStart()
     header.fieldInterruption.size = 0;
     header.applicationData.offset = 0;
     header.applicationData.size = 0;
+
+    sequencceCounter++;
+    scanCounter++;
 }
 
 void Header::printHeader()
 {
+    Serial.println("=====HeaderStart=====");
     Serial.println(header.version.version);
     Serial.println(header.version.MajorVersion);
     Serial.println(header.version.MinorVersion);
@@ -53,6 +58,10 @@ void Header::printHeader()
     Serial.println(header.applicationData.offset);
     Serial.println(header.applicationData.size);
 }
+
+
+
+// /////////////////////////////////////////////////////
 //  Getters & Setters
 
 headerStruct Header::getHeader()

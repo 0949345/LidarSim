@@ -14,6 +14,19 @@
 // EERef scanNum = EEPROM[5];       // Wordt gebruikt om bij te houden hoeveel scans er zijn gemaakt
 
 
+struct headerMajor
+{
+    String datagramMarker;
+    String protocol;
+    int versionMajor;
+    int versionMinor;
+    int totalLeangth;
+    int id;
+    int fragmentOffset;
+    int reserved;
+};
+
+
 struct versionStruct
 {
     int version;
