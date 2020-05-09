@@ -15,7 +15,7 @@ void Header::generateHeaderStart()
     header.scanNumber = scanCounter;
     header.timeStamp.date = millis();
     header.timeStamp.time = millis();
-    
+
     header.deviceStatus.offset = 0;
     header.deviceStatus.size = 0;
     header.configurationData.offset = 0;
@@ -30,6 +30,7 @@ void Header::generateHeaderStart()
     sequencceCounter++;
     scanCounter++;
 }
+
 
 void Header::printHeader()
 {
@@ -58,8 +59,6 @@ void Header::printHeader()
     Serial.println(header.applicationData.offset);
     Serial.println(header.applicationData.size);
 }
-
-
 
 // /////////////////////////////////////////////////////
 //  Getters & Setters
@@ -107,45 +106,45 @@ void Header::setDataBlockOffset(int dataBlock, int size)
         }
     }
     else if (dataBlock == 2)
+    {
+        if (size == 0)
         {
-            if (size == 0)
-            {
-                header.measurementData.offset = 0;
-                header.measurementData.size = 0;
-            }
-            else if (size > 0)
-            {
-                header.measurementData.offset = currentOffset;
-                header.measurementData.size = size;
-                currentOffset = currentOffset + size;
-            }
+            header.measurementData.offset = 0;
+            header.measurementData.size = 0;
         }
+        else if (size > 0)
+        {
+            header.measurementData.offset = currentOffset;
+            header.measurementData.size = size;
+            currentOffset = currentOffset + size;
+        }
+    }
     else if (dataBlock == 3)
+    {
+        if (size == 0)
         {
-            if (size == 0)
-            {
-                header.fieldInterruption.offset = 0;
-                header.fieldInterruption.size = 0;
-            }
-            else if (size > 0)
-            {
-                header.fieldInterruption.offset = currentOffset;
-                header.fieldInterruption.size = size;
-                currentOffset = currentOffset + size;
-            }
+            header.fieldInterruption.offset = 0;
+            header.fieldInterruption.size = 0;
         }
+        else if (size > 0)
+        {
+            header.fieldInterruption.offset = currentOffset;
+            header.fieldInterruption.size = size;
+            currentOffset = currentOffset + size;
+        }
+    }
     else if (dataBlock == 4)
+    {
+        if (size == 0)
         {
-            if (size == 0)
-            {
-                header.applicationData.offset = 0;
-                header.applicationData.size = 0;
-            }
-            else if (size > 0)
-            {
-                header.applicationData.offset = currentOffset;
-                header.applicationData.size = size;
-                currentOffset = currentOffset + size;
-            }
+            header.applicationData.offset = 0;
+            header.applicationData.size = 0;
         }
+        else if (size > 0)
+        {
+            header.applicationData.offset = currentOffset;
+            header.applicationData.size = size;
+            currentOffset = currentOffset + size;
+        }
+    }
 }
