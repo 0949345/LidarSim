@@ -17,7 +17,6 @@ private:
 protected:
 public:
     void generateHeaderStart();
-    void generateHeaderStart(int dOffset, int dSize, int cOffset, int cSize, int mOffset, int mSize, int fOffset, int fSize, int aOffset, int aSize);
     void generateNonFirstHeader(int size, int prevSize, int prevOffsetd);
     void printHeader();
     headerStruct getHeader();

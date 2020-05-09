@@ -30,37 +30,7 @@ void Header::generateHeaderStart()
     sequencceCounter++;
     scanCounter++;
 }
-void Header::generateHeaderStart(int dOffset, int dSize, int cOffset, int cSize, int mOffset, int mSize, int fOffset, int fSize, int aOffset, int aSize)
-{// A small part of the header can be hardcoded
-    header.version.version = 1;
-    header.version.MajorVersion = 2;
-    header.version.MinorVersion = 3;
-    header.version.release = 456;
 
-    header.serialNumber = 4653;
-    header.serialNumberSystemPlug = 678;
-    header.channelNumber = 2;
-    // This part cannot be hardcoded
-    header.sequenceNumber = sequencceCounter;
-    header.scanNumber = scanCounter;
-    header.timeStamp.date = millis();
-    header.timeStamp.time = millis();
-
-    header.deviceStatus.offset = dOffset;
-    header.deviceStatus.size = dSize;
-    header.configurationData.offset = cOffset;
-    header.configurationData.size = cSize;
-    header.measurementData.offset = mOffset;
-    header.measurementData.size = mSize;
-    header.fieldInterruption.offset = fOffset;
-    header.fieldInterruption.size = fSize;
-    header.applicationData.offset = aOffset;
-    header.applicationData.size = aSize;
-
-    sequencceCounter++;
-    scanCounter++;
-
-}
 
 void Header::printHeader()
 {
