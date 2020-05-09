@@ -17,10 +17,11 @@ private:
 protected:
 public:
     void generateHeaderStart();
+    void generateHeaderStart(int dOffset, int dSize, int cOffset, int cSize, int mOffset, int mSize, int fOffset, int fSize, int aOffset, int aSize);
     void generateNonFirstHeader(int size, int prevSize, int prevOffsetd);
     void printHeader();
     headerStruct getHeader();
-    void setHeader(headerStruct value); //not needed
+    void setHeader(headerStruct value); //not needed??
 
     void setFirstDataBlockOffset(int size);
     void setDataBlockOffset(int dataBlockint, int size);

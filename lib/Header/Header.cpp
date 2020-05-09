@@ -15,7 +15,7 @@ void Header::generateHeaderStart()
     header.scanNumber = scanCounter;
     header.timeStamp.date = millis();
     header.timeStamp.time = millis();
-    
+
     header.deviceStatus.offset = 0;
     header.deviceStatus.size = 0;
     header.configurationData.offset = 0;
@@ -29,6 +29,37 @@ void Header::generateHeaderStart()
 
     sequencceCounter++;
     scanCounter++;
+}
+void Header::generateHeaderStart(int dOffset, int dSize, int cOffset, int cSize, int mOffset, int mSize, int fOffset, int fSize, int aOffset, int aSize)
+{// A small part of the header can be hardcoded
+    header.version.version = 1;
+    header.version.MajorVersion = 2;
+    header.version.MinorVersion = 3;
+    header.version.release = 456;
+
+    header.serialNumber = 4653;
+    header.serialNumberSystemPlug = 678;
+    header.channelNumber = 2;
+    // This part cannot be hardcoded
+    header.sequenceNumber = sequencceCounter;
+    header.scanNumber = scanCounter;
+    header.timeStamp.date = millis();
+    header.timeStamp.time = millis();
+
+    header.deviceStatus.offset = dOffset;
+    header.deviceStatus.size = dSize;
+    header.configurationData.offset = cOffset;
+    header.configurationData.size = cSize;
+    header.measurementData.offset = mOffset;
+    header.measurementData.size = mSize;
+    header.fieldInterruption.offset = fOffset;
+    header.fieldInterruption.size = fSize;
+    header.applicationData.offset = aOffset;
+    header.applicationData.size = aSize;
+
+    sequencceCounter++;
+    scanCounter++;
+
 }
 
 void Header::printHeader()
@@ -58,8 +89,6 @@ void Header::printHeader()
     Serial.println(header.applicationData.offset);
     Serial.println(header.applicationData.size);
 }
-
-
 
 // /////////////////////////////////////////////////////
 //  Getters & Setters
@@ -107,45 +136,45 @@ void Header::setDataBlockOffset(int dataBlock, int size)
         }
     }
     else if (dataBlock == 2)
+    {
+        if (size == 0)
         {
-            if (size == 0)
-            {
-                header.measurementData.offset = 0;
-                header.measurementData.size = 0;
-            }
-            else if (size > 0)
-            {
-                header.measurementData.offset = currentOffset;
-                header.measurementData.size = size;
-                currentOffset = currentOffset + size;
-            }
+            header.measurementData.offset = 0;
+            header.measurementData.size = 0;
         }
+        else if (size > 0)
+        {
+            header.measurementData.offset = currentOffset;
+            header.measurementData.size = size;
+            currentOffset = currentOffset + size;
+        }
+    }
     else if (dataBlock == 3)
+    {
+        if (size == 0)
         {
-            if (size == 0)
-            {
-                header.fieldInterruption.offset = 0;
-                header.fieldInterruption.size = 0;
-            }
-            else if (size > 0)
-            {
-                header.fieldInterruption.offset = currentOffset;
-                header.fieldInterruption.size = size;
-                currentOffset = currentOffset + size;
-            }
+            header.fieldInterruption.offset = 0;
+            header.fieldInterruption.size = 0;
         }
+        else if (size > 0)
+        {
+            header.fieldInterruption.offset = currentOffset;
+            header.fieldInterruption.size = size;
+            currentOffset = currentOffset + size;
+        }
+    }
     else if (dataBlock == 4)
+    {
+        if (size == 0)
         {
-            if (size == 0)
-            {
-                header.applicationData.offset = 0;
-                header.applicationData.size = 0;
-            }
-            else if (size > 0)
-            {
-                header.applicationData.offset = currentOffset;
-                header.applicationData.size = size;
-                currentOffset = currentOffset + size;
-            }
+            header.applicationData.offset = 0;
+            header.applicationData.size = 0;
         }
+        else if (size > 0)
+        {
+            header.applicationData.offset = currentOffset;
+            header.applicationData.size = size;
+            currentOffset = currentOffset + size;
+        }
+    }
 }
