@@ -7,7 +7,7 @@ void EthernetProtocol::generate(int amount)
 {
     b.setBeamAmount(amount);
     b.generateBeams();
-    b.printBeams();
+    //b.printBeams();
 
     if (isFirstHeader)
     { //Als de eerste header gemaakt moet worden
