@@ -11,6 +11,9 @@ private:
     int startOffset = 32;
     int currentOffset;
 
+    int sequencceCounter = 0;
+    int scanCounter = 0;
+
 protected:
 public:
     void generateHeaderStart();
