@@ -17,7 +17,7 @@ void EthernetProtocol::generate(int amount)
         }
         else
         { // als data niet is gesplits dan is de grote het aantal beams
-        generateHeader(11, 22, 33, 44, 55);
+            generateHeader(11, 22, 33, 44, 55);
         }
     }
     else
@@ -44,9 +44,9 @@ void EthernetProtocol::printHeader()
 headerStruct EthernetProtocol::getHeader()
 {
     return h.getHeader();
+    //moet aangeroepen kunnen worden door de ethernet connection
+    //om de body te krijgen zodat deze weer omgezet kan worden
 }
-//moet aangeroepen kunnen worden door de ethernet connection
-//om de body te krijgen zodat deze weer omgezet kan worden
 
 //deze functie wordt aangeroepen vanuit ethernet Con hierbij maken wij een var
 //met een * zodat hiernaar verwezen kan worden aangezien dit de eerste waarde is
