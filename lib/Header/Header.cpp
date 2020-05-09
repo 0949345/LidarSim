@@ -29,6 +29,7 @@ void Header::generateHeaderStart()
 
 void Header::printHeader()
 {
+    Serial.println("=====HeaderStart=====");
     Serial.println(header.version.version);
     Serial.println(header.version.MajorVersion);
     Serial.println(header.version.MinorVersion);
