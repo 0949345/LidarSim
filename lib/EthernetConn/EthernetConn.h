@@ -30,4 +30,5 @@ public:
   //void fillBit();
   EthernetConn();
   boolean convertToBinary16BitBigEnd(long int n);
+  boolean convertToBinary8BitBigEnd( int n);
 };
