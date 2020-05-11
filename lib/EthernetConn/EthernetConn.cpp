@@ -5,7 +5,6 @@ EthernetConn::EthernetConn()
     Ep.generate(beamAmount);
     convertBody();
     // convertHeader();
-    Serial.println("\n\n");
     //Ep.printHeader();
 }
 
@@ -17,6 +16,7 @@ void EthernetConn::convertHeader()
 
 void EthernetConn::convertBody()
 {
+    
     // convertToBinary16BitBigEnd(32768);
     // convertToBinary16BitBigEnd(65536);
     //convertToBinary16BitBigEnd(38999);
