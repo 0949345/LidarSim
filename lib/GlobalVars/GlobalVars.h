@@ -15,7 +15,7 @@
 // EERef scanNum = EEPROM[5];       // Wordt gebruikt om bij te houden hoeveel scans er zijn gemaakt
 
 
-#define maxBeamCount = 100;
+extern int maxBeamCount;
 
 
 struct headerMajor

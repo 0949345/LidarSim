@@ -8,6 +8,11 @@ void EthernetProtocol::generate(int amount)
     b.setBeamAmount(amount);
     b.generateBeams();
     //b.printBeams();
+    b.splitToMaxSize();
+    if (b.getBeamAmount() > 100)
+    {
+        splitData();
+    }
 
     if (b.getBeamAmount() > 100)
     {

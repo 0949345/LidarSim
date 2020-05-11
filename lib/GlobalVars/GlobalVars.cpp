@@ -1,0 +1,1 @@
+int maxBeamCount = 10;
