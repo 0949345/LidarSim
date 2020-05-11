@@ -3,8 +3,8 @@ EthernetConn::EthernetConn()
 {
 
     Ep.generate(beamAmount);
-    //convertBody();
-     convertHeader();
+    convertBody();
+    convertHeader();
     //Ep.printHeader();
 }
 
@@ -13,19 +13,11 @@ void EthernetConn::convertHeader()
     Serial.println("---(HEADER)---");
     //tell de characters die nodig zijn voor de header array
     //headerLength += Ep.getHeader().datagram_marker.length();
-
-
-    
-    convertToBinary32BitBigEnd(4294967285);
-    convertToBinary32BitBigEnd(4294967194);
-    //convertToBinary32BitBigEnd(4294966295);
-    //convertToBinary32BitBigEnd(4294957295);
-
 }
 
 void EthernetConn::convertBody()
 {
-        Serial.println("---(BODY)---");
+    Serial.println("---(BODY)---");
     for (int l = 0; l < 1022; l++)
     {
         rawBodyData[l] = 0;
@@ -70,8 +62,8 @@ void EthernetConn::sendData()
 {
 }
 
-boolean EthernetConn::convertToBinary16BitBigEnd(long int n)        
-{       //0-65536
+boolean EthernetConn::convertToBinary16BitBigEnd(long int n)
+{ //0-65536
     boolean tempBoolArray[16];
 
     for (int s = 0; s < 16; s++)
@@ -102,7 +94,7 @@ boolean EthernetConn::convertToBinary16BitBigEnd(long int n)
     }
 
     //printen van de variablen
-    if (1 == 1)
+    if (1 == 0)
     {
         for (int s = 0; s < 16; s++)
         {
@@ -114,7 +106,7 @@ boolean EthernetConn::convertToBinary16BitBigEnd(long int n)
 }
 
 boolean EthernetConn::convertToBinary8BitBigEnd(int n)
-{          // 0-255
+{ // 0-255
     boolean tempBoolArray[8];
 
     for (int s = 0; s < 8; s++)
@@ -133,7 +125,7 @@ boolean EthernetConn::convertToBinary8BitBigEnd(int n)
                 //alles op 1 zetten
                 for (int k = 0; k < 8; k++)
                 {
-                    tempBoolArray[k] = 1; 
+                    tempBoolArray[k] = 1;
                     rawBodyData[arrayCounterBody] = 1;
                 }
             }
@@ -145,7 +137,7 @@ boolean EthernetConn::convertToBinary8BitBigEnd(int n)
     }
 
     //printen van de variablen
-    if (1 == 1)
+    if (1 == 0)
     {
         for (int s = 0; s < 8; s++)
         {
@@ -191,9 +183,8 @@ boolean EthernetConn::convertToStatus(int n)
     arrayCounterBody = arrayCounterBody + 8;
 }
 
-
-boolean EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)        
-{       //0-65536
+boolean EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
+{ //0-65536
 
     boolean tempBoolArray[32];
 
@@ -214,14 +205,12 @@ boolean EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
                 for (int k = 0; k < 32; k++)
                 {
                     tempBoolArray[k] = 1; //4294967296
-                                        ////4294972928
+                                          ////4294972928
                     rawBodyData[arrayCounterBody] = 1;
                 }
             }
-            
+
             n = n - pow(2, x);
-            Serial.print("---");
-            Serial.println(n); 
             tempBoolArray[x] = 1;
             rawBodyData[arrayCounterBody] = 1;
         }
@@ -229,7 +218,7 @@ boolean EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
     }
 
     //printen van de variablen
-    if (1 == 1)
+    if (1 == 0)
     {
         for (int s = 0; s < 32; s++)
         {
