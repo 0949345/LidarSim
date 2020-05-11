@@ -45,7 +45,7 @@ void Body::setBeamAmount(int amount)
 }
 int Body::getBeamAmount()
 {
-    return beamAmount;
+    return this->beamAmount;
 }
 
 void Body::setBeam(int distance_, int RSSI_, byte status_, int beamNr)
