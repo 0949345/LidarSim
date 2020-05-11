@@ -5,7 +5,7 @@ EthernetConn::EthernetConn()
     Ep.generate(beamAmount);
     convertBody();
     // convertHeader();
-    Ep.printHeader();
+    //Ep.printHeader();
 }
 
 void EthernetConn::convertHeader()
@@ -16,8 +16,8 @@ void EthernetConn::convertHeader()
 
 void EthernetConn::convertBody()
 {
-    
-    for (int l = 0; l < 511; l++)
+
+    for (int l = 0; l < 1022; l++)
     {
         rawBodyData[l] = 0;
         //Serial.println(l);
@@ -46,7 +46,6 @@ void EthernetConn::convertBody()
                 someValue = RSSI__;
                 convertToBinary8BitBigEnd(someValue);
 
-               
                 // itoa(RSSI__, intArray, 10);
             }
             else
@@ -84,14 +83,10 @@ void EthernetConn::convertBody()
             //Serial.println(status__);
         }
     }
-    // for (int l = 0; l < arrayCounterBody; l++)
-    // {
-    //     Serial.println(rawBodyData[l]);
-    // }
-     Serial.println(rawBodyData[17]);
-     Serial.println(rawBodyData[18]);
-     Serial.println(rawBodyData[19]);
-
+    for (int l = 0; l < arrayCounterBody; l++)
+    {
+        Serial.println(rawBodyData[l]);
+    }
 }
 
 void EthernetConn::sendData()
@@ -194,27 +189,27 @@ boolean EthernetConn::convertToStatus(int n)
     else if (n == no_light)
     {
         //Serial.println("no_light");
-        rawBodyData[arrayCounterBody+1] = 1;
+        rawBodyData[arrayCounterBody + 1] = 1;
     }
     else if (n == dazzle)
     {
         //Serial.println("dazzle");
-        rawBodyData[arrayCounterBody+2] = 1;
+        rawBodyData[arrayCounterBody + 2] = 1;
     }
     else if (n == reflector)
     {
         //Serial.println("reflector");
-        rawBodyData[arrayCounterBody+3] = 1;
+        rawBodyData[arrayCounterBody + 3] = 1;
     }
     else if (n == error)
     {
         //Serial.println("error");
-        rawBodyData[arrayCounterBody+4] = 1;
+        rawBodyData[arrayCounterBody + 4] = 1;
     }
     else if (n == warning)
     {
         //Serial.println("warning");
-        rawBodyData[arrayCounterBody+5] = 1;
+        rawBodyData[arrayCounterBody + 5] = 1;
     }
     arrayCounterBody = arrayCounterBody + 8;
 }

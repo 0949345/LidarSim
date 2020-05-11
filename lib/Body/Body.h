@@ -7,11 +7,11 @@ class Body
 
 private:
   int beamAmount;
-  beamStruct beams[500];
-  beamStruct beams2[100];
-  beamStruct beams3[100];
-  beamStruct beams4[100];
-  beamStruct beams5[100];
+  beamStruct beams[10];
+  //beamStruct beams2[100];
+  //beamStruct beams3[100];
+  //beamStruct beams4[100];
+  //beamStruct beams5[100];
   
   
   
