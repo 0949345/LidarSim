@@ -5,7 +5,12 @@ EthernetConn::EthernetConn()
     Ep.generate(beamAmount);
     convertBody();
     // convertHeader();
+<<<<<<< HEAD
     Ep.printHeader();
+=======
+    Serial.println("\n\n");
+    //Ep.printHeader();
+>>>>>>> 1a84af8806106c394bf1070f0a5fcab29ce3d81a
 }
 
 void EthernetConn::convertHeader()
@@ -16,12 +21,19 @@ void EthernetConn::convertHeader()
 
 void EthernetConn::convertBody()
 {
+<<<<<<< HEAD
     
+=======
+>>>>>>> 1a84af8806106c394bf1070f0a5fcab29ce3d81a
     // convertToBinary16BitBigEnd(32768);
     // convertToBinary16BitBigEnd(65536);
     //convertToBinary16BitBigEnd(38999);
     //convertToBinary8BitBigEnd(123);
+<<<<<<< HEAD
     for (int l = 0; l < 1000; l++)
+=======
+    for (int l = 0; l < 1022; l++)
+>>>>>>> 1a84af8806106c394bf1070f0a5fcab29ce3d81a
     {
         rawBodyData[l] = 0;
     }

@@ -6,21 +6,26 @@ void Body::generateBeams()
     {
         beams[i].distance = rand() % 65535;
         //Serial.println(var);
-        beams[i].RSSI = (rand() % 256)-128;
+        beams[i].RSSI = (rand() % 256) - 128;
         beams[i].status = rand() % 5 + 1;
     }
 }
 
-void Body::splitToMaxSize(){}
+void Body::splitTo(beamStruct *beamArray)
+{
+}
+
+void Body::splitToMaxSize()
+{
+}
 
 int Body::checkSize()
 {
-
     return 1;
 }
 void Body::printBeams()
 {
- 
+
     Serial.println("Generated beams:");
     for (int i = 0; i < beamAmount; i++)
     {
@@ -29,7 +34,6 @@ void Body::printBeams()
         Serial.println(beams[i].distance);
         Serial.println(beams[i].RSSI);
         Serial.println(beams[i].status);
-
     }
 }
 
@@ -39,7 +43,8 @@ void Body::setBeamAmount(int amount)
 {
     this->beamAmount = amount;
 }
-int Body::getBeamAmount(){
+int Body::getBeamAmount()
+{
     return beamAmount;
 }
 

@@ -14,6 +14,11 @@ void EthernetProtocol::generate(int amount)
         splitData();
     }
 
+    if (b.getBeamAmount() > 100)
+    {
+        splitData();
+    }
+
     if (isFirstHeader)
     { //Als de eerste header gemaakt moet worden
         if (isDataSplitted)
