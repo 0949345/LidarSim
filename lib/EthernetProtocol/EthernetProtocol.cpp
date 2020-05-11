@@ -29,7 +29,7 @@ void EthernetProtocol::generate(int amount)
 void EthernetProtocol::generateHeader(int device, int config, int measurement, int fieldInterruption, int application)
 {
     h.generateHeaderStart();
-    h.setFirstDataBlockOffset(device);
+    h.setDataBlockOffset(0, device);
     h.setDataBlockOffset(1, config);
     h.setDataBlockOffset(2, measurement);
     h.setDataBlockOffset(3, fieldInterruption);

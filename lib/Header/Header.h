@@ -22,6 +22,5 @@ public:
     headerStruct getHeader();
     void setHeader(headerStruct value); //not needed??
 
-    void setFirstDataBlockOffset(int size);
     void setDataBlockOffset(int dataBlockint, int size);
 };

@@ -1,7 +1,7 @@
 #include "Header.h"
 
 void Header::generateHeaderStart()
-{   // A small part of the header can be hardcoded
+{ // A small part of the header can be hardcoded
     header.version.version = 1;
     header.version.MajorVersion = 2;
     header.version.MinorVersion = 3;
@@ -30,7 +30,6 @@ void Header::generateHeaderStart()
     sequencceCounter++;
     scanCounter++;
 }
-
 
 void Header::printHeader()
 {
@@ -73,25 +72,26 @@ void Header::setHeader(headerStruct value)
     header = value;
 }
 
-void Header::setFirstDataBlockOffset(int size)
-{
-    if (size == 0)
-    {
-        header.deviceStatus.offset = 0;
-        header.deviceStatus.size = 0;
-        currentOffset = startOffset;
-    }
-    else
-    {
-        header.deviceStatus.offset = startOffset;
-        header.deviceStatus.size = size;
-        currentOffset = startOffset + size;
-    }
-}
 
 void Header::setDataBlockOffset(int dataBlock, int size)
 {
-    if (dataBlock == 1)
+    if (dataBlock == 0)
+    {
+        if (size == 0)
+        {
+            header.deviceStatus.offset = 0;
+            header.deviceStatus.size = 0;
+            currentOffset = startOffset;
+        }
+        else
+        {
+            header.deviceStatus.offset = startOffset;
+            header.deviceStatus.size = size;
+            currentOffset = startOffset + size;
+        }
+    }
+
+    else if (dataBlock == 1)
     {
         if (size == 0)
         {

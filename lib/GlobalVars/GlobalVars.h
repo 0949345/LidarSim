@@ -64,6 +64,6 @@ struct headerStruct {
 struct beamStruct {
     int distance;       //in mm
     int RSSI;           //intensity
-    int status;        //status = geen licht/blind/reflector/Error/Warning 
+    int status;         //status = geen licht/blind/reflector/Error/Warning 
 };
 
