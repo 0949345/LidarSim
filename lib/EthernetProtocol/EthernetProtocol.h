@@ -20,6 +20,7 @@ public:
   EthernetProtocol();
   void generate(int amount);
   void generateHeader(int device, int config, int measurement, int fieldInterruption, int application);
+  void splitData();
 
   void printHeader();
   //Setters && Getters

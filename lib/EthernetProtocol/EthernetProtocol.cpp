@@ -9,6 +9,11 @@ void EthernetProtocol::generate(int amount)
     b.generateBeams();
     //b.printBeams();
 
+    if (b.getBeamAmount() > 100)
+    {
+        splitData();
+    }
+
     if (isFirstHeader)
     { //Als de eerste header gemaakt moet worden
         if (isDataSplitted)
@@ -17,7 +22,7 @@ void EthernetProtocol::generate(int amount)
         }
         else
         { // als data niet is gesplits dan is de grote het aantal beams
-            generateHeader(11, 22, 33, 44, 55);
+            generateHeader(11, 11, 11, 11, 11);
         }
     }
     else
@@ -34,6 +39,11 @@ void EthernetProtocol::generateHeader(int device, int config, int measurement, i
     h.setDataBlockOffset(2, measurement);
     h.setDataBlockOffset(3, fieldInterruption);
     h.setDataBlockOffset(4, application);
+}
+
+void EthernetProtocol::splitData()
+{
+    
 }
 
 void EthernetProtocol::printHeader()
