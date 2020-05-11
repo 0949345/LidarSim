@@ -18,7 +18,7 @@ private:
   int beamAmount = 6;
   char bodyArray[256];
   int arrayCounterBody = 0;
-  boolean rawBodyData[1024];
+  boolean rawBodyData[1023];
   EthernetProtocol Ep;
 
 protected:
@@ -31,4 +31,5 @@ public:
   EthernetConn();
   boolean convertToBinary16BitBigEnd(long int n);
   boolean convertToBinary8BitBigEnd( int n);
+  boolean convertToStatus(int);
 };
