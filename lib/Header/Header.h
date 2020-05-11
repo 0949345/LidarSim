@@ -9,7 +9,7 @@ class Header
 private:
     headerStruct header;
     int startOffset = 32;
-    int currentOffset;
+    int currentOffset= 0;
 
     int sequencceCounter = 0;
     int scanCounter = 0;

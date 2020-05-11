@@ -4,14 +4,18 @@
 #include <string.h>
 #include <math.h>
 // #include <EEPROM.h>
+#define valid 0
 #define no_light 1
-#define blind 2
+#define dazzle 2
 #define reflector 3
 #define error 4
 #define warning 5
 
 // EERef sequenceNum = EEPROM[0]; // Wordt gebruikt om bij te houden hoeveel dataset zijn verstuurd
 // EERef scanNum = EEPROM[5];       // Wordt gebruikt om bij te houden hoeveel scans er zijn gemaakt
+
+
+#define maxBeamCount = 100;
 
 
 struct headerMajor
