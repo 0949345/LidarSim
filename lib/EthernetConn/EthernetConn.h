@@ -32,4 +32,5 @@ public:
   boolean convertToBinary16BitBigEnd(long int n);
   boolean convertToBinary8BitBigEnd( int n);
   boolean convertToStatus(int);
+  boolean convertToBinary32BitBigEnd(unsigned long int n);
 };

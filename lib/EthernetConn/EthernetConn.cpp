@@ -3,19 +3,29 @@ EthernetConn::EthernetConn()
 {
 
     Ep.generate(beamAmount);
-    convertBody();
-    // convertHeader();
+    //convertBody();
+     convertHeader();
     //Ep.printHeader();
 }
 
 void EthernetConn::convertHeader()
 {
+    Serial.println("---(HEADER)---");
     //tell de characters die nodig zijn voor de header array
     //headerLength += Ep.getHeader().datagram_marker.length();
+
+
+    
+    convertToBinary32BitBigEnd(4294967285);
+    convertToBinary32BitBigEnd(4294967194);
+    //convertToBinary32BitBigEnd(4294966295);
+    //convertToBinary32BitBigEnd(4294957295);
+
 }
 
 void EthernetConn::convertBody()
 {
+        Serial.println("---(BODY)---");
     for (int l = 0; l < 1022; l++)
     {
         rawBodyData[l] = 0;
@@ -37,49 +47,17 @@ void EthernetConn::convertBody()
             {
                 someValue = distance__;
                 convertToBinary16BitBigEnd(someValue);
-
-                // itoa(distance__, intArray, 10);
             }
             else if (j == 1)
             {
                 someValue = RSSI__;
                 convertToBinary8BitBigEnd(someValue);
-
-                // itoa(RSSI__, intArray, 10);
             }
             else
             {
                 someValue = status__;
-                //
-                // --(komt nog een convert)--
-                //
                 convertToStatus(someValue);
-                //Serial.println(someValue);
-                //Serial.println(convertDecimalToBinary(someValue));
-                // itoa(status__, intArray, 10);
             }
-
-            // if (someValue > 9999)
-            //     valLen = 5;
-            // else if (someValue > 999)
-            //     valLen = 4;
-            // else if (someValue > 99)
-            //     valLen = 3;
-            // else if (someValue > 9)
-            //     valLen = 2;
-            // else
-            //     valLen = 1;
-
-            // for (int l = 0; l < valLen; l++)
-            // {
-            //     bodyArray[arrayCounterBody] = intArray[l];
-            //     //Serial.println(bodyArray[arrayCounterBody]);
-            //     arrayCounterBody++;
-            // }
-
-            //Serial.println(distance__);
-            //Serial.println(RSSI__);
-            //Serial.println(status__);
         }
     }
     for (int l = 0; l < arrayCounterBody; l++)
@@ -92,8 +70,8 @@ void EthernetConn::sendData()
 {
 }
 
-boolean EthernetConn::convertToBinary16BitBigEnd(long int n)
-{
+boolean EthernetConn::convertToBinary16BitBigEnd(long int n)        
+{       //0-65536
     boolean tempBoolArray[16];
 
     for (int s = 0; s < 16; s++)
@@ -124,7 +102,7 @@ boolean EthernetConn::convertToBinary16BitBigEnd(long int n)
     }
 
     //printen van de variablen
-    if (1 == 0)
+    if (1 == 1)
     {
         for (int s = 0; s < 16; s++)
         {
@@ -136,7 +114,7 @@ boolean EthernetConn::convertToBinary16BitBigEnd(long int n)
 }
 
 boolean EthernetConn::convertToBinary8BitBigEnd(int n)
-{
+{          // 0-255
     boolean tempBoolArray[8];
 
     for (int s = 0; s < 8; s++)
@@ -155,7 +133,7 @@ boolean EthernetConn::convertToBinary8BitBigEnd(int n)
                 //alles op 1 zetten
                 for (int k = 0; k < 8; k++)
                 {
-                    tempBoolArray[k] = 1; //65535
+                    tempBoolArray[k] = 1; 
                     rawBodyData[arrayCounterBody] = 1;
                 }
             }
@@ -167,7 +145,7 @@ boolean EthernetConn::convertToBinary8BitBigEnd(int n)
     }
 
     //printen van de variablen
-    if (1 == 0)
+    if (1 == 1)
     {
         for (int s = 0; s < 8; s++)
         {
@@ -211,4 +189,53 @@ boolean EthernetConn::convertToStatus(int n)
         rawBodyData[arrayCounterBody + 5] = 1;
     }
     arrayCounterBody = arrayCounterBody + 8;
+}
+
+
+boolean EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)        
+{       //0-65536
+
+    boolean tempBoolArray[32];
+
+    for (int s = 0; s < 32; s++)
+    {
+        tempBoolArray[s] = 0;
+    }
+
+    //Serial.println("---");
+    for (int x = 31; x > -1; x--)
+    {
+
+        if (n >= pow(2, x))
+        {
+            if (n >= 4294967295)
+            {
+                //alles op 1 zetten
+                for (int k = 0; k < 32; k++)
+                {
+                    tempBoolArray[k] = 1; //4294967296
+                                        ////4294972928
+                    rawBodyData[arrayCounterBody] = 1;
+                }
+            }
+            
+            n = n - pow(2, x);
+            Serial.print("---");
+            Serial.println(n); 
+            tempBoolArray[x] = 1;
+            rawBodyData[arrayCounterBody] = 1;
+        }
+        arrayCounterBody++;
+    }
+
+    //printen van de variablen
+    if (1 == 1)
+    {
+        for (int s = 0; s < 32; s++)
+        {
+            Serial.print(tempBoolArray[s]);
+        }
+        Serial.println();
+        return tempBoolArray;
+    }
 }
