@@ -16,7 +16,6 @@ void EthernetConn::convertHeader()
 
 void EthernetConn::convertBody()
 {
-
     for (int l = 0; l < 1022; l++)
     {
         rawBodyData[l] = 0;
