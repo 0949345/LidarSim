@@ -17,17 +17,15 @@ void EthernetConn::convertHeader()
 
 void EthernetConn::convertBody()
 {
-    // convertToBinary16BitBigEnd(32768);
-    // convertToBinary16BitBigEnd(65536);
-    //convertToBinary16BitBigEnd(38999);
-    //convertToBinary8BitBigEnd(123);
-    for (int l = 0; l < 1022; l++)
+    
+    for (int l = 0; l < 511; l++)
     {
         rawBodyData[l] = 0;
+        //Serial.println(l);
     }
     int valLen = 0;
     int someValue = 0;
-    for (int i = 0; i < beamAmount; i++) //gaat boumamount keer erdoorheen
+    for (int i = 0; i < beamAmount; i++) //gaat beamAmount keer erdoorheen
     {
         Serial.println();
 
@@ -49,7 +47,7 @@ void EthernetConn::convertBody()
                 someValue = RSSI__;
                 convertToBinary8BitBigEnd(someValue);
 
-                //Serial.println(convertDecimalToBinary(someValue));
+               
                 // itoa(RSSI__, intArray, 10);
             }
             else
@@ -87,11 +85,14 @@ void EthernetConn::convertBody()
             //Serial.println(status__);
         }
     }
-    //Serial.println("----------");
-    for (int l = 0; l < arrayCounterBody; l++)
-    {
-        Serial.println(rawBodyData[l]);
-    }
+    // for (int l = 0; l < arrayCounterBody; l++)
+    // {
+    //     Serial.println(rawBodyData[l]);
+    // }
+     Serial.println(rawBodyData[17]);
+     Serial.println(rawBodyData[18]);
+     Serial.println(rawBodyData[19]);
+
 }
 
 void EthernetConn::sendData()
