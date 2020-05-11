@@ -5,7 +5,7 @@ EthernetConn::EthernetConn()
     Ep.generate(beamAmount);
     convertBody();
     // convertHeader();
-    //Ep.printHeader();
+    Ep.printHeader();
 }
 
 void EthernetConn::convertHeader()
@@ -21,7 +21,7 @@ void EthernetConn::convertBody()
     // convertToBinary16BitBigEnd(65536);
     //convertToBinary16BitBigEnd(38999);
     //convertToBinary8BitBigEnd(123);
-    for (int l = 0; l < 1022; l++)
+    for (int l = 0; l < 1000; l++)
     {
         rawBodyData[l] = 0;
     }
