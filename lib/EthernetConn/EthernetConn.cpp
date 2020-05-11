@@ -15,11 +15,7 @@ void EthernetConn::convertHeader()
     //headerLength += Ep.getHeader().datagram_marker.length();
 
 
-    
-    convertToBinary32BitBigEnd(4294967285);
-    convertToBinary32BitBigEnd(4294967194);
-    //convertToBinary32BitBigEnd(4294966295);
-    //convertToBinary32BitBigEnd(4294957295);
+
 
 }
 
@@ -220,8 +216,6 @@ boolean EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
             }
             
             n = n - pow(2, x);
-            Serial.print("---");
-            Serial.println(n); 
             tempBoolArray[x] = 1;
             rawBodyData[arrayCounterBody] = 1;
         }
