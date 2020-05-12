@@ -111,8 +111,9 @@ void EthernetConn::convertBody()
     }
 }
 
-void EthernetConn::sendData()
+boolean *EthernetConn::sendData()
 {
+    return rawBodyData;
 }
 
 void EthernetConn::convertToBinary16BitBigEnd(long int n)
