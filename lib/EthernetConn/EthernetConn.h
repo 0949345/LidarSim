@@ -32,8 +32,8 @@ public:
   void printRawData();
 
   // Convert functions
-  boolean convertToBinary16BitBigEnd(long int n);
-  boolean convertToBinary8BitBigEnd( int n);
-  boolean convertToStatus(int);
-  boolean convertToBinary32BitBigEnd(unsigned long int n);
+  void convertToBinary16BitBigEnd(long int n);
+  void convertToBinary8BitBigEnd( int n);
+  void convertToStatus(int);
+  void convertToBinary32BitBigEnd(unsigned long int n);
 };

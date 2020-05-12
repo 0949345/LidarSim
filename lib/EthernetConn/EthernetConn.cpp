@@ -115,7 +115,7 @@ void EthernetConn::sendData()
 {
 }
 
-boolean EthernetConn::convertToBinary16BitBigEnd(long int n)
+void EthernetConn::convertToBinary16BitBigEnd(long int n)
 { //0-65536
     boolean tempBoolArray[16];
 
@@ -145,20 +145,9 @@ boolean EthernetConn::convertToBinary16BitBigEnd(long int n)
         }
         arrayCounterBody++;
     }
-
-    //printen van de variablen
-    if (1 == 0)
-    {
-        for (int s = 0; s < 16; s++)
-        {
-            Serial.print(tempBoolArray[s]);
-        }
-        Serial.println();
-        return tempBoolArray;
-    }
 }
 
-boolean EthernetConn::convertToBinary8BitBigEnd(int n)
+void EthernetConn::convertToBinary8BitBigEnd(int n)
 { // 0-255
     boolean tempBoolArray[8];
 
@@ -167,7 +156,6 @@ boolean EthernetConn::convertToBinary8BitBigEnd(int n)
         tempBoolArray[s] = 0;
     }
 
-    //Serial.println("---");
     for (int x = 7; x > -1; x--)
     {
 
@@ -188,20 +176,9 @@ boolean EthernetConn::convertToBinary8BitBigEnd(int n)
         }
         arrayCounterBody++;
     }
-
-    //printen van de variablen
-    if (1 == 0)
-    {
-        for (int s = 0; s < 8; s++)
-        {
-            Serial.print(tempBoolArray[s]);
-        }
-        Serial.println();
-        return tempBoolArray;
-    }
 }
 
-boolean EthernetConn::convertToStatus(int n)
+void EthernetConn::convertToStatus(int n)
 {
     if (n == valid)
     {
@@ -236,7 +213,7 @@ boolean EthernetConn::convertToStatus(int n)
     arrayCounterBody = arrayCounterBody + 8;
 }
 
-boolean EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
+void EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
 { //0-65536
 
     boolean tempBoolArray[32];
@@ -268,16 +245,5 @@ boolean EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
             rawBodyData[arrayCounterBody] = 1;
         }
         arrayCounterBody++;
-    }
-
-    //printen van de variablen
-    if (1 == 0)
-    {
-        for (int s = 0; s < 32; s++)
-        {
-            Serial.print(tempBoolArray[s]);
-        }
-        Serial.println();
-        return tempBoolArray;
     }
 }
