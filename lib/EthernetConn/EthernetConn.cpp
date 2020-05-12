@@ -115,12 +115,6 @@ boolean *EthernetConn::sendData()
 
 void EthernetConn::convertToBinary16BitBigEnd(long int n)
 { //0-65536
-    boolean tempBoolArray[16];
-
-    for (int s = 0; s < 16; s++)
-    {
-        tempBoolArray[s] = 0;
-    }
 
     //Serial.println("---");
     for (int x = 15; x > -1; x--)
@@ -133,12 +127,11 @@ void EthernetConn::convertToBinary16BitBigEnd(long int n)
                 //alles op 1 zetten
                 for (int k = 0; k < 16; k++)
                 {
-                    tempBoolArray[k] = 1; //65535
+                                            //65535
                     rawBodyData[arrayCounterBody] = 1;
                 }
             }
             n = n - pow(2, x);
-            tempBoolArray[x] = 1;
             rawBodyData[arrayCounterBody] = 1;
         }
         arrayCounterBody++;
@@ -147,12 +140,6 @@ void EthernetConn::convertToBinary16BitBigEnd(long int n)
 
 void EthernetConn::convertToBinary8BitBigEnd(int n)
 { // 0-255
-    boolean tempBoolArray[8];
-
-    for (int s = 0; s < 8; s++)
-    {
-        tempBoolArray[s] = 0;
-    }
 
     for (int x = 7; x > -1; x--)
     {
@@ -164,12 +151,10 @@ void EthernetConn::convertToBinary8BitBigEnd(int n)
                 //alles op 1 zetten
                 for (int k = 0; k < 8; k++)
                 {
-                    tempBoolArray[k] = 1;
                     rawBodyData[arrayCounterBody] = 1;
                 }
             }
             n = n - pow(2, x);
-            tempBoolArray[x] = 1;
             rawBodyData[arrayCounterBody] = 1;
         }
         arrayCounterBody++;
@@ -214,12 +199,6 @@ void EthernetConn::convertToStatus(int n)
 void EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
 { //0-65536
 
-    boolean tempBoolArray[32];
-
-    for (int s = 0; s < 32; s++)
-    {
-        tempBoolArray[s] = 0;
-    }
 
     //Serial.println("---");
     for (int x = 31; x > -1; x--)
@@ -232,14 +211,13 @@ void EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
                 //alles op 1 zetten
                 for (int k = 0; k < 32; k++)
                 {
-                    tempBoolArray[k] = 1; //4294967296
-                                          ////4294972928
+                                            //4294967296
+                                            ////4294972928
                     rawBodyData[arrayCounterBody] = 1;
                 }
             }
 
             n = n - pow(2, x);
-            tempBoolArray[x] = 1;
             rawBodyData[arrayCounterBody] = 1;
         }
         arrayCounterBody++;
