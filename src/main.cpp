@@ -2,7 +2,8 @@
 #include "../lib/Header/Header.h"
 #include "../lib/Body/Body.h"
 #include "../lib/EthernetProtocol/EthernetProtocol.h"
-#include "EthernetConn.h"
+#include "../lib/EthernetConn/EthernetConn.h"
+#include "../lib/MicroController/MicroController.h"
 #define onboardLed 13
 
 //Testen van Jayden
@@ -15,6 +16,11 @@ void testFunctionJayden()
 void testFunctionKeanu()
 {
   EthernetConn ethernet;
+  MicroController microContr;
+  //sends data to controller
+  //microContr.getData(ethernet.sendData);
+  microContr.convert();
+  microContr.printData();
 }
 
 void setup()
