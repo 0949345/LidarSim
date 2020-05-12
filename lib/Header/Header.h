@@ -11,8 +11,8 @@ private:
     int startOffset = 32;
     int currentOffset= 0;
 
-    int sequencceCounter = 0;
-    int scanCounter = 0;
+    unsigned long int sequencceCounter = 0;
+    long int scanCounter = 0;
 
 protected:
 public:

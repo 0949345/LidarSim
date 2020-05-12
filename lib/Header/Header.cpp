@@ -7,8 +7,8 @@ void Header::generateHeaderStart()
     header.version.MinorVersion = 3;
     header.version.release = 456;
 
-    header.serialNumber = 4653;
-    header.serialNumberSystemPlug = 678;
+    header.serialNumber = 455653;
+    header.serialNumberSystemPlug = 67988;
     header.channelNumber = 2;
     // This part cannot be hardcoded
     header.sequenceNumber = sequencceCounter;

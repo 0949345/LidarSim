@@ -14,9 +14,7 @@
 // EERef sequenceNum = EEPROM[0]; // Wordt gebruikt om bij te houden hoeveel dataset zijn verstuurd
 // EERef scanNum = EEPROM[5];       // Wordt gebruikt om bij te houden hoeveel scans er zijn gemaakt
 
-
 extern int maxBeamCount;
-
 
 struct headerMajor
 {
@@ -30,44 +28,44 @@ struct headerMajor
     int reserved;
 };
 
-
 struct versionStruct
 {
-    int version;
-    int MajorVersion;
-    int MinorVersion;
-    int release;
+    unsigned short int version;
+    unsigned short int MajorVersion;
+    unsigned short int MinorVersion;
+    unsigned short int release;
 };
 struct offsetBlock
 {
-    int offset;
-    int size;
+    unsigned int offset;
+    unsigned int size;
 };
 struct timeStruct
 {
     unsigned int date;
-    int time;
+    unsigned long int time;
 };
 
-struct headerStruct {
+struct headerStruct
+{
     versionStruct version;
-    int serialNumber;
-    int serialNumberSystemPlug;
-    int channelNumber;
+    unsigned long int serialNumber;
+    unsigned long int serialNumberSystemPlug;
+    unsigned short int channelNumber;
     //3 bytes reserved
-    int sequenceNumber;
-    int scanNumber;
+    unsigned long int sequenceNumber;
+    unsigned long int scanNumber;
     timeStruct timeStamp;
-    offsetBlock deviceStatus;           // Blok waar de device data in wordt aangegeven
-    offsetBlock configurationData;      // Blok met de configuraties (aantal beams de kijkhoek etc.)
-    offsetBlock measurementData;        // Blok waar de uitgelezen data staat (de beams die wij genereren)
-    offsetBlock fieldInterruption;      // Blok waarin wordt aangegeven of er een reflector is waargenomen
-    offsetBlock applicationData;        // Blok waarin wordt aangegeven of er "beams" zijn onderbroken (mogelijk om aan/uit te zetten in de LIDAR)
+    offsetBlock deviceStatus;      // Blok waar de device data in wordt aangegeven
+    offsetBlock configurationData; // Blok met de configuraties (aantal beams de kijkhoek etc.)
+    offsetBlock measurementData;   // Blok waar de uitgelezen data staat (de beams die wij genereren)
+    offsetBlock fieldInterruption; // Blok waarin wordt aangegeven of er een reflector is waargenomen
+    offsetBlock applicationData;   // Blok waarin wordt aangegeven of er "beams" zijn onderbroken (mogelijk om aan/uit te zetten in de LIDAR)
 };
 
-struct beamStruct {
-    int distance;       //in mm
-    int RSSI;           //intensity
-    int status;         //status = geen licht/blind/reflector/Error/Warning 
+struct beamStruct
+{
+    int distance; //in mm
+    int RSSI;     //intensity
+    int status;   //status = geen licht/blind/reflector/Error/Warning
 };
-

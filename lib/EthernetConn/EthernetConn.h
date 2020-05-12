@@ -11,7 +11,6 @@ class EthernetConn
 
 private:
   int headerLength = 0;
-  int arrayCounterHeeader;
   char intArray[12];
   char headerArray[256];
 
@@ -29,6 +28,7 @@ public:
   //void byteToBit();
   //void fillBit();
   EthernetConn();
+  void reserveByte(int numOfBytes);
   boolean convertToBinary16BitBigEnd(long int n);
   boolean convertToBinary8BitBigEnd( int n);
   boolean convertToStatus(int);
