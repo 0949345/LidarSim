@@ -14,7 +14,7 @@ private:
   char intArray[12];
   char headerArray[256];
 
-  int beamAmount = 6;
+  int beamAmount = 10;
   char bodyArray[256];
   int arrayCounterBody = 0;
   boolean rawBodyData[1023];

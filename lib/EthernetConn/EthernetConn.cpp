@@ -4,7 +4,7 @@ EthernetConn::EthernetConn()
 
     Ep.generate(beamAmount);
     convertHeader();
-    convertBody();
+    //convertBody();
     //Ep.printHeader();
     printRawData();
 }
@@ -65,7 +65,7 @@ void EthernetConn::reserveByte(int numOfBytes)
 
 void EthernetConn::printRawData()
 {
-    for (int i = 0; i < 1023; i++)
+    for (int i = 0; i < arrayCounterBody; i++)
     {
         Serial.print(rawBodyData[i]);
     }
@@ -74,6 +74,7 @@ void EthernetConn::printRawData()
 void EthernetConn::convertBody()
 {
     Serial.println("---(BODY)---");
+    convertToBinary32BitBigEnd(beamAmount);
 
     int valLen = 0;
     int someValue = 0;
@@ -106,7 +107,7 @@ void EthernetConn::convertBody()
     }
     for (int l = 0; l < arrayCounterBody; l++)
     {
-        Serial.println(rawBodyData[l]);
+        //Serial.println(rawBodyData[l]);
     }
 }
 
