@@ -76,7 +76,6 @@ void EthernetConn::convertBody()
     Serial.println("---(BODY)---");
     convertToBinary32BitBigEnd(beamAmount);
 
-    int valLen = 0;
     int someValue = 0;
     for (int i = 0; i < beamAmount; i++) //gaat beamAmount keer erdoorheen
     {
