@@ -4,7 +4,7 @@ EthernetConn::EthernetConn()
 
     Ep.generate(beamAmount);
     convertHeader();
-    //convertBody();
+    convertBody();
     //Ep.printHeader();
     printRawData();
 }

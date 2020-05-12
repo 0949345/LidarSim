@@ -7,7 +7,7 @@ class Body
 
 private:
   int beamAmount;
-  beamStruct beams[10];
+  beamStruct beams[19];
   
   
   
