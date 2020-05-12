@@ -24,7 +24,7 @@ protected:
 public:
   void convertHeader();
   void convertBody();
-  void *sendData();
+  boolean *sendData();
   //void byteToBit();
   //void fillBit();
   EthernetConn();

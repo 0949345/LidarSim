@@ -80,8 +80,6 @@ void EthernetConn::convertBody()
     int someValue = 0;
     for (int i = 0; i < beamAmount; i++) //gaat beamAmount keer erdoorheen
     {
-        Serial.println();
-
         int distance__ = Ep.getBody()[i].distance;
         int RSSI__ = Ep.getBody()[i].RSSI;
         int status__ = Ep.getBody()[i].status;
