@@ -3,13 +3,20 @@ EthernetConn::EthernetConn()
 {
 
     Ep.generate(beamAmount);
-    convertBody();
     convertHeader();
+    convertBody();
     //Ep.printHeader();
+    printRawData();
 }
 
 void EthernetConn::convertHeader()
 {
+    // Empty the array
+    for (int l = 0; l < 1022; l++)
+    {
+        rawBodyData[l] = 0;
+        //Serial.println(l);
+    }
     Serial.println("---(HEADER)---");
     //tell de characters die nodig zijn voor de header array
     //headerLength += Ep.getHeader().datagram_marker.length();
@@ -24,14 +31,14 @@ void EthernetConn::convertHeader()
     convertToBinary32BitBigEnd(Ep.getHeader().serialNumberSystemPlug); //UDint
     convertToBinary8BitBigEnd(Ep.getHeader().channelNumber);           //USInt
 
-    reserveByte(3); //reserve 3 bytes
+    reserveByte(3); // reserve 3 bytes
 
     convertToBinary32BitBigEnd(Ep.getHeader().sequenceNumber); //UDInt
     convertToBinary32BitBigEnd(Ep.getHeader().scanNumber);     //UDInt
 
     convertToBinary16BitBigEnd(Ep.getHeader().timeStamp.date); //UInt
 
-    reserveByte(2); //reserve 2 bytes
+    reserveByte(2); // reserve 2 bytes
 
     convertToBinary32BitBigEnd(Ep.getHeader().timeStamp.time); //UDInt
 
@@ -56,14 +63,18 @@ void EthernetConn::reserveByte(int numOfBytes)
     }
 }
 
+void EthernetConn::printRawData()
+{
+    for (int i = 0; i < 1023; i++)
+    {
+        Serial.print(rawBodyData[i]);
+    }
+}
+
 void EthernetConn::convertBody()
 {
     Serial.println("---(BODY)---");
-    for (int l = 0; l < 1022; l++)
-    {
-        rawBodyData[l] = 0;
-        //Serial.println(l);
-    }
+
     int valLen = 0;
     int someValue = 0;
     for (int i = 0; i < beamAmount; i++) //gaat beamAmount keer erdoorheen

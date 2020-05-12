@@ -29,6 +29,9 @@ public:
   //void fillBit();
   EthernetConn();
   void reserveByte(int numOfBytes);
+  void printRawData();
+
+  // Convert functions
   boolean convertToBinary16BitBigEnd(long int n);
   boolean convertToBinary8BitBigEnd( int n);
   boolean convertToStatus(int);
