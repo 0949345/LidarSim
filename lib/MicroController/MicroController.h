@@ -8,7 +8,7 @@ private:
 
 protected:
 public:
-    void getData(boolean data[]);
+    void getData(boolean data[],int counter);
     void convert();
     void printData();
 };

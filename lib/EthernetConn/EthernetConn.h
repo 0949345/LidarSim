@@ -30,7 +30,7 @@ public:
   EthernetConn();
   void reserveByte(int numOfBytes);
   void printRawData();
-
+  int getCounter();
   // Convert functions
   void convertToBinary16BitBigEnd(long int n);
   void convertToBinary8BitBigEnd( int n);

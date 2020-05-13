@@ -223,3 +223,7 @@ void EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
         arrayCounterBody++;
     }
 }
+
+int EthernetConn::getCounter(){
+    return arrayCounterBody;
+}
