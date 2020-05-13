@@ -37,7 +37,7 @@ void MicroController::printData()
 void MicroController::converter8Bit(boolean data[], int num)
 {
     boolean dataToBeConverted[32];
-    int result = 0;
+    double result = 0;
     // for (int i = 0; i < 8; i++)
     // {
     //     dataToBeConverted[i] = ;
@@ -47,7 +47,7 @@ void MicroController::converter8Bit(boolean data[], int num)
     {
         if (data[num + i] == 1)
         {
-            result = +pow(2, result);
+            result += pow(2, i);
         }
     }
 
