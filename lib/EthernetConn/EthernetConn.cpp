@@ -17,7 +17,7 @@ void EthernetConn::convertHeader()
         rawBodyData[l] = 0;
         //Serial.println(l);
     }
-    Serial.println("---(HEADER)---");
+    //Serial.println("---(HEADER)---");
     //tell de characters die nodig zijn voor de header array
     //headerLength += Ep.getHeader().datagram_marker.length();
     convertToBinary8BitBigEnd(Ep.getHeader().version.version); //USInt
@@ -73,7 +73,7 @@ void EthernetConn::printRawData()
 
 void EthernetConn::convertBody()
 {
-    Serial.println("---(BODY)---");
+    //Serial.println("---(BODY)---");
     convertToBinary32BitBigEnd(beamAmount);
 
     int someValue = 0;
