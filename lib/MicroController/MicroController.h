@@ -14,8 +14,8 @@ public:
     void convertBody(int num,int beamNum);
     void convertHeader();
     
-    void converter8Bit(boolean data[],int num);
-    void converter16Bit(boolean data[],int num);
-    void converter32Bit(boolean data[],int num);
+    double converter8Bit(boolean data[],int byteNum);
+    double converter16Bit(boolean data[],int byteNum);
+    double converter32Bit(boolean data[],int byteNum);
     void printData();
 };

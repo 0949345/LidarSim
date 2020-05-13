@@ -6,13 +6,16 @@ void MicroController::getData(boolean data[], int counter)
     for (int i = 0; i < counter; i++)
     {
         incomingRawData[i] = data[i];
-        Serial.print(data[i]);
+        Serial.print(incomingRawData[i]);
     }
-    converter8Bit(data, 0);
+
+    // Serial.print("\nresult: ");
+    //convertBody(1,1);
 }
 
 void MicroController::convertBody(int num, int beamNum)
 {
+    Serial.println(converter8Bit(incomingRawData, 0));
     //incomingRawData[n]
     //16    convert van 16 naar distance
     //
@@ -24,6 +27,7 @@ void MicroController::convertBody(int num, int beamNum)
 void MicroController::convertHeader()
 {
     //sequence nummer converten+uitlezen
+    
     //scan nummer converten+uitlezen
 
     //measurment data offset converten+uitlezen
@@ -34,10 +38,9 @@ void MicroController::printData()
 {
 }
 
-void MicroController::converter8Bit(boolean data[], int byteNum)
+double MicroController::converter8Bit(boolean data[], int byteNum)
 {
     int num = byteNum * 8;
-    boolean dataToBeConverted[32];
     double result = 0;
     // for (int i = 0; i < 8; i++)
     // {
@@ -52,23 +55,45 @@ void MicroController::converter8Bit(boolean data[], int byteNum)
         }
         num++;
     }
-
-    Serial.println("\nresult: ");
-    Serial.println(result);
+    return result;
 }
 
-void MicroController::converter16Bit(boolean data[], int num)
+double MicroController::converter16Bit(boolean data[], int byteNum)
 {
-    // for (int i = 0; i < 16; i++)
+    int num = byteNum * 8;
+    double result = 0;
+    // for (int i = 0; i < 8; i++)
     // {
-    //     dataToBeConverted[i] = data[num+i];
+    //     dataToBeConverted[i] = ;
     // }
+
+    for (int i = 15; i > -1; i--)
+    {
+        if (data[num] == 1)
+        {
+            result += pow(2, i);
+        }
+        num++;
+    }
+    return result;
 }
 
-void MicroController::converter32Bit(boolean data[], int num)
+double MicroController::converter32Bit(boolean data[], int byteNum)
 {
-    // for (int i = 0; i < 32; i++)
+    int num = byteNum * 8;
+    double result = 0;
+    // for (int i = 0; i < 8; i++)
     // {
-    //     dataToBeConverted[i] = data[num+i];
+    //     dataToBeConverted[i] = ;
     // }
+
+    for (int i = 31; i > -1; i--)
+    {
+        if (data[num] == 1)
+        {
+            result += pow(2, i);
+        }
+        num++;
+    }
+    return result;
 }
