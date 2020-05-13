@@ -1,24 +1,27 @@
 #include "MicroController.h"
 
-void MicroController::getData(boolean data[],int counter){
-Serial.println();
-for (int i = 0; i < counter; i++)
+void MicroController::getData(boolean data[], int counter)
 {
-    incomingRawData[i] = data[i];
-    Serial.print(data[i]);
+    Serial.println();
+    for (int i = 0; i < counter; i++)
+    {
+        incomingRawData[i] = data[i];
+        Serial.print(data[i]);
+    }
 }
 
-
-
+void MicroController::convert()
+{
 }
 
-void MicroController::convert(){
-
-
+void MicroController::printData()
+{
 }
 
-void MicroController::printData(){
-
-
-
+void MicroController::seperateToHeader()
+{
+    for (int i = 0; i < headerBitLength; i++)
+    {
+        header[i] = incomingRawData[i];
+    }
 }
