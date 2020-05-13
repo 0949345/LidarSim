@@ -12,16 +12,20 @@ void MicroController::getData(boolean data[], int counter)
 
 void MicroController::convert()
 {
+    
 }
+
+void MicroController::convertHeader()
+{
+    //sequence nummer converten+uitlezen
+    //scan nummer converten+uitlezen
+
+    //measurment data offset converten+uitlezen
+    //measurment data size converten+uitlezen
+
+}
+
 
 void MicroController::printData()
 {
-}
-
-void MicroController::seperateToHeader()
-{
-    for (int i = 0; i < headerBitLength; i++)
-    {
-        header[i] = incomingRawData[i];
-    }
 }
