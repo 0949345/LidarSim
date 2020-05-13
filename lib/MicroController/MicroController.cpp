@@ -51,7 +51,7 @@ void MicroController::converter8Bit(boolean data[], int num)
         }
     }
 
-    Serial.println("result");
+    Serial.println("\nresult: ");
     Serial.println(result);
 }
 
