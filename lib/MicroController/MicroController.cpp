@@ -2,11 +2,11 @@
 
 void MicroController::getData(boolean data[], int counter)
 {
-    Serial.println();
+    messageLength = counter;
     for (int i = 0; i < counter; i++)
     {
         incomingRawData[i] = data[i];
-        Serial.print(data[i]);
+        //Serial.print(data[i]);
     }
     converter8Bit(data, 416);
 }
@@ -32,6 +32,11 @@ void MicroController::convertHeader()
 
 void MicroController::printData()
 {
+    Serial.println();
+    for (int i = 0; i < messageLength; i++)
+    {
+        Serial.print(data[i]);
+    }
 }
 
 void MicroController::converter8Bit(boolean data[], int num)

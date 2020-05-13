@@ -7,6 +7,7 @@ private:
     boolean incomingRawData[1023];
     
     int headerBitLength = 416;
+    int messageLength = 0;
 protected:
 public:
     void getData(boolean data[],int counter);
