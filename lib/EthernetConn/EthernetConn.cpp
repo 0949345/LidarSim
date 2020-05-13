@@ -6,7 +6,7 @@ EthernetConn::EthernetConn()
     convertHeader();
     convertBody();
     //Ep.printHeader();
-    printRawData();
+    //printRawData();
 }
 
 void EthernetConn::convertHeader()
@@ -200,7 +200,6 @@ void EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
 { //0-65536
 
 
-    //Serial.println("---");
     for (int x = 31; x > -1; x--)
     {
 
