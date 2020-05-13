@@ -2,9 +2,9 @@
 
 void Header::generateHeaderStart()
 { // A small part of the header can be hardcoded
-    header.version.version = 1;
-    header.version.MajorVersion = 2;
-    header.version.MinorVersion = 3;
+    header.version.version = 20;
+    header.version.MajorVersion = 25;
+    header.version.MinorVersion = 107;
     header.version.release = 456;
 
     header.serialNumber = 455653;
