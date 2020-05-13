@@ -8,7 +8,7 @@ void MicroController::getData(boolean data[], int counter)
         incomingRawData[i] = data[i];
         Serial.print(data[i]);
     }
-    converter8Bit(data, 416);
+    converter8Bit(data, 0);
 }
 
 void MicroController::convertBody(int num, int beamNum)
