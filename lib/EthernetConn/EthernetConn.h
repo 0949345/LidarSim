@@ -32,8 +32,8 @@ public:
   void printRawData();
   int getCounter();
   // Convert functions
-  void convertToBinary16BitBigEnd(long int n);
-  void convertToBinary8BitBigEnd( int n);
+  void convertToBinary16Bit(long int n);
+  void convertToBinary8Bit( int n);
+  void convertToBinary32Bit(unsigned long int n);
   void convertToStatus(int);
-  void convertToBinary32BitBigEnd(unsigned long int n);
 };

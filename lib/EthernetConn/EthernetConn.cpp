@@ -20,38 +20,38 @@ void EthernetConn::convertHeader()
     //Serial.println("---(HEADER)---");
     //tell de characters die nodig zijn voor de header array
     //headerLength += Ep.getHeader().datagram_marker.length();
-    convertToBinary8BitBigEnd(Ep.getHeader().version.version); //USInt
+    convertToBinary8Bit(Ep.getHeader().version.version); //USInt
 
-    convertToBinary8BitBigEnd(Ep.getHeader().version.version);      //USInt
-    convertToBinary8BitBigEnd(Ep.getHeader().version.MajorVersion); //USInt
-    convertToBinary8BitBigEnd(Ep.getHeader().version.MinorVersion); //USInt
-    convertToBinary8BitBigEnd(Ep.getHeader().version.release);      //USint
+    convertToBinary8Bit(Ep.getHeader().version.version);      //USInt
+    convertToBinary8Bit(Ep.getHeader().version.MajorVersion); //USInt
+    convertToBinary8Bit(Ep.getHeader().version.MinorVersion); //USInt
+    convertToBinary8Bit(Ep.getHeader().version.release);      //USint
 
-    convertToBinary32BitBigEnd(Ep.getHeader().serialNumber);           //UDInt
-    convertToBinary32BitBigEnd(Ep.getHeader().serialNumberSystemPlug); //UDint
-    convertToBinary8BitBigEnd(Ep.getHeader().channelNumber);           //USInt
+    convertToBinary32Bit(Ep.getHeader().serialNumber);           //UDInt
+    convertToBinary32Bit(Ep.getHeader().serialNumberSystemPlug); //UDint
+    convertToBinary8Bit(Ep.getHeader().channelNumber);           //USInt
 
     reserveByte(3); // reserve 3 bytes
 
-    convertToBinary32BitBigEnd(Ep.getHeader().sequenceNumber); //UDInt
-    convertToBinary32BitBigEnd(Ep.getHeader().scanNumber);     //UDInt
+    convertToBinary32Bit(Ep.getHeader().sequenceNumber); //UDInt
+    convertToBinary32Bit(Ep.getHeader().scanNumber);     //UDInt
 
-    convertToBinary16BitBigEnd(Ep.getHeader().timeStamp.date); //UInt
+    convertToBinary16Bit(Ep.getHeader().timeStamp.date); //UInt
 
     reserveByte(2); // reserve 2 bytes
 
-    convertToBinary32BitBigEnd(Ep.getHeader().timeStamp.time); //UDInt
+    convertToBinary32Bit(Ep.getHeader().timeStamp.time); //UDInt
 
-    convertToBinary16BitBigEnd(Ep.getHeader().deviceStatus.offset);      //UInt
-    convertToBinary16BitBigEnd(Ep.getHeader().deviceStatus.size);        //UInt
-    convertToBinary16BitBigEnd(Ep.getHeader().configurationData.offset); //UInt
-    convertToBinary16BitBigEnd(Ep.getHeader().configurationData.size);   //UInt
-    convertToBinary16BitBigEnd(Ep.getHeader().measurementData.offset);   //UInt
-    convertToBinary16BitBigEnd(Ep.getHeader().measurementData.size);     //UInt
-    convertToBinary16BitBigEnd(Ep.getHeader().fieldInterruption.offset); //UInt
-    convertToBinary16BitBigEnd(Ep.getHeader().fieldInterruption.size);   //UInt
-    convertToBinary16BitBigEnd(Ep.getHeader().applicationData.offset);   //UInt
-    convertToBinary16BitBigEnd(Ep.getHeader().applicationData.size);     //UInt
+    convertToBinary16Bit(Ep.getHeader().deviceStatus.offset);      //UInt
+    convertToBinary16Bit(Ep.getHeader().deviceStatus.size);        //UInt
+    convertToBinary16Bit(Ep.getHeader().configurationData.offset); //UInt
+    convertToBinary16Bit(Ep.getHeader().configurationData.size);   //UInt
+    convertToBinary16Bit(Ep.getHeader().measurementData.offset);   //UInt
+    convertToBinary16Bit(Ep.getHeader().measurementData.size);     //UInt
+    convertToBinary16Bit(Ep.getHeader().fieldInterruption.offset); //UInt
+    convertToBinary16Bit(Ep.getHeader().fieldInterruption.size);   //UInt
+    convertToBinary16Bit(Ep.getHeader().applicationData.offset);   //UInt
+    convertToBinary16Bit(Ep.getHeader().applicationData.size);     //UInt
 }
 
 void EthernetConn::reserveByte(int numOfBytes)
@@ -74,7 +74,7 @@ void EthernetConn::printRawData()
 void EthernetConn::convertBody()
 {
     //Serial.println("---(BODY)---");
-    convertToBinary32BitBigEnd(beamAmount);
+    convertToBinary32Bit(beamAmount);
 
     int someValue = 0;
     for (int i = 0; i < beamAmount; i++) //gaat beamAmount keer erdoorheen
@@ -88,12 +88,12 @@ void EthernetConn::convertBody()
             if (j == 0)
             {
                 someValue = distance__;
-                convertToBinary16BitBigEnd(someValue);
+                convertToBinary16Bit(someValue);
             }
             else if (j == 1)
             {
                 someValue = RSSI__;
-                convertToBinary8BitBigEnd(someValue);
+                convertToBinary8Bit(someValue);
             }
             else
             {
@@ -113,7 +113,7 @@ boolean *EthernetConn::sendData()
     return rawBodyData;
 }
 
-void EthernetConn::convertToBinary16BitBigEnd(long int n)
+void EthernetConn::convertToBinary16Bit(long int n)
 { //0-65536
 
     //Serial.println("---");
@@ -138,7 +138,7 @@ void EthernetConn::convertToBinary16BitBigEnd(long int n)
     }
 }
 
-void EthernetConn::convertToBinary8BitBigEnd(int n)
+void EthernetConn::convertToBinary8Bit(int n)
 { // 0-255
 
     for (int x = 7; x > -1; x--)
@@ -196,7 +196,7 @@ void EthernetConn::convertToStatus(int n)
     arrayCounterBody = arrayCounterBody + 8;
 }
 
-void EthernetConn::convertToBinary32BitBigEnd(unsigned long int n)
+void EthernetConn::convertToBinary32Bit(unsigned long int n)
 { //0-65536
 
 
