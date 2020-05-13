@@ -44,12 +44,13 @@ void MicroController::converter8Bit(boolean data[], int byteNum)
     //     dataToBeConverted[i] = ;
     // }
 
-    for (int i = 0; i < 8; i++)
+    for (int i = 7; i > -1; i--)
     {
-        if (data[num + i] == 1)
+        if (data[num] == 1)
         {
             result += pow(2, i);
         }
+        num++;
     }
 
     Serial.println("\nresult: ");
