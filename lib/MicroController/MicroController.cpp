@@ -6,16 +6,16 @@ void MicroController::getData(boolean data[], int counter)
     for (int i = 0; i < counter; i++)
     {
         incomingRawData[i] = data[i];
-        Serial.print(incomingRawData[i]);
+        Serial.print(incomingRawData[i]);  //printen van de data
     }
 
-    // Serial.print("\nresult: ");
-    //convertBody(1,1);
+     Serial.print("\ntest: ");
+    convertBody(1,1);
 }
 
 void MicroController::convertBody(int num, int beamNum)
 {
-    Serial.println(converter8Bit(incomingRawData, 0));
+    converter8Bit(0);
     //incomingRawData[n]
     //16    convert van 16 naar distance
     //
@@ -38,7 +38,7 @@ void MicroController::printData()
 {
 }
 
-double MicroController::converter8Bit(boolean data[], int byteNum)
+double MicroController::converter8Bit(int byteNum)
 {
     int num = byteNum * 8;
     double result = 0;
@@ -49,7 +49,7 @@ double MicroController::converter8Bit(boolean data[], int byteNum)
 
     for (int i = 7; i > -1; i--)
     {
-        if (data[num] == 1)
+        if (incomingRawData[num] == 1)
         {
             result += pow(2, i);
         }
@@ -58,7 +58,7 @@ double MicroController::converter8Bit(boolean data[], int byteNum)
     return result;
 }
 
-double MicroController::converter16Bit(boolean data[], int byteNum)
+double MicroController::converter16Bit(int byteNum)
 {
     int num = byteNum * 8;
     double result = 0;
@@ -69,7 +69,7 @@ double MicroController::converter16Bit(boolean data[], int byteNum)
 
     for (int i = 15; i > -1; i--)
     {
-        if (data[num] == 1)
+        if (incomingRawData[num] == 1)
         {
             result += pow(2, i);
         }
@@ -78,7 +78,7 @@ double MicroController::converter16Bit(boolean data[], int byteNum)
     return result;
 }
 
-double MicroController::converter32Bit(boolean data[], int byteNum)
+double MicroController::converter32Bit(int byteNum)
 {
     int num = byteNum * 8;
     double result = 0;
@@ -89,7 +89,7 @@ double MicroController::converter32Bit(boolean data[], int byteNum)
 
     for (int i = 31; i > -1; i--)
     {
-        if (data[num] == 1)
+        if (incomingRawData[num] == 1)
         {
             result += pow(2, i);
         }
