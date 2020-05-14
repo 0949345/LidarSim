@@ -49,6 +49,11 @@ void EthernetProtocol::printHeader()
     h.printHeader();
 }
 
+void EthernetProtocol::printAllData(){
+    h.printHeader();
+    b.printBeams();
+}
+
 headerStruct EthernetProtocol::getHeader()
 {
     return h.getHeader();

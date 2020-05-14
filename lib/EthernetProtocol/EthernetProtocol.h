@@ -23,6 +23,7 @@ public:
   void splitData();
 
   void printHeader();
+  void printAllData();
   //Setters && Getters
   beamStruct *getBody();
   headerStruct getHeader();

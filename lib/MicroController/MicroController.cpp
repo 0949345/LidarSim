@@ -38,9 +38,9 @@ void MicroController::convertBody(int num, int beamNum)
 void MicroController::convertHeader()
 {
     //sequence nummer converten+uitlezen
-    Serial.print(F("Sequence: "));
-    double sequence = converter32Bit(16);
-    Serial.println(sequence);
+    // Serial.print(F("Sequence: "));
+    // double sequence = converter32Bit(16);
+    // Serial.println(sequence);
 
     //scan nummer converten+uitlezen
     // Serial.print("Scan: ");

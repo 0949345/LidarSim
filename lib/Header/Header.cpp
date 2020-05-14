@@ -34,28 +34,49 @@ void Header::generateHeaderStart()
 void Header::printHeader()
 {
     Serial.println(F("=====HeaderStart====="));
+    Serial.print(F("Version:"));
     Serial.println(header.version.version);
+    Serial.print(F("MajorVersion:"));
     Serial.println(header.version.MajorVersion);
+    Serial.print(F("MinorVersion:"));
     Serial.println(header.version.MinorVersion);
+    Serial.print(F("Release:"));
     Serial.println(header.version.release);
 
+    Serial.print(F("Serialnumber:"));
     Serial.println(header.serialNumber);
+    Serial.print(F("SystemSerialNumber:"));
     Serial.println(header.serialNumberSystemPlug);
+    Serial.print(F("ChannelNumber:"));
     Serial.println(header.channelNumber);
+    Serial.print(F("Sequence:"));
     Serial.println(header.sequenceNumber);
+    Serial.print(F("Scan:"));
     Serial.println(header.scanNumber);
+    Serial.print(F("Date:"));
     Serial.println(header.timeStamp.date);
+    // delay(1000);
+    Serial.print(F("Time:"));
     Serial.println(header.timeStamp.time);
-
+    Serial.print(F("Device offset:"));
     Serial.println(header.deviceStatus.offset);
+    Serial.print(F("Device size:"));
     Serial.println(header.deviceStatus.size);
+    Serial.print(F("Config offset:"));
     Serial.println(header.configurationData.offset);
+    Serial.print(F("Config size:"));
     Serial.println(header.configurationData.size);
+    Serial.print(F("MeasurementData offset:"));
     Serial.println(header.measurementData.offset);
+    Serial.print(F("MeasurementData size:"));
     Serial.println(header.measurementData.size);
+    Serial.print(F("FieldInterruption offset:"));
     Serial.println(header.fieldInterruption.offset);
+    Serial.print(F("FieldInterruption size:"));
     Serial.println(header.fieldInterruption.size);
+    Serial.print(F("Application offset:"));
     Serial.println(header.applicationData.offset);
+    Serial.print(F("Application size:"));
     Serial.println(header.applicationData.size);
 }
 
@@ -71,7 +92,6 @@ void Header::setHeader(headerStruct value)
 {
     header = value;
 }
-
 
 void Header::setDataBlockOffset(int dataBlock, int size)
 {

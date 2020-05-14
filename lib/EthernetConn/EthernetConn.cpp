@@ -70,8 +70,8 @@ void EthernetConn::printRawData()
         Serial.print(rawBodyData[i]);
     }
 }
-void EthernetConn::printData(){
-    Ep.printHeader();
+void EthernetConn::printAllData(){
+    Ep.printAllData();
 }
 
 void EthernetConn::convertBody()
