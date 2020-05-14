@@ -17,10 +17,9 @@ void MicroController::getData(boolean *data, int counter)
     }
     Serial.println();
 
-    Serial.print("Test: ");
-    Serial.println(converter8Bit(0));
     // Serial.print("Test0: ");
     // Serial.println(converter8Bit(0));
+    convertHeader();
     convertBody(1, 1);
 }
 
@@ -38,12 +37,9 @@ void MicroController::convertBody(int num, int beamNum)
 
 void MicroController::convertHeader()
 {
-    Serial.print("Test2: ");
-    Serial.println(converter8Bit(2));
     //sequence nummer converten+uitlezen
-
     Serial.print("Sequence: ");
-    Serial.println(converter8Bit(0));
+    Serial.println(converter8Bit(16));
     //scan nummer converten+uitlezen
 
     //measurment data offset converten+uitlezen
@@ -59,10 +55,6 @@ double MicroController::converter8Bit(int byteNum)
     boolean temp;
     int num = byteNum*8;
     double result = 0;
-    // for (int i = 0; i < 8; i++)
-    // {
-    //     dataToBeConverted[i] = ;
-    // }
 
     for (int i = 7; i > -1; i--)
     {
@@ -78,16 +70,14 @@ double MicroController::converter8Bit(int byteNum)
 
 double MicroController::converter16Bit(int byteNum)
 {
+    boolean temp;
     int num = byteNum * 8;
     double result = 0;
-    // for (int i = 0; i < 8; i++)
-    // {
-    //     dataToBeConverted[i] = ;
-    // }
 
     for (int i = 15; i > -1; i--)
     {
-        if (incomingRawData[num] == 1)
+        EEPROM.get(num, temp);
+        if (temp == 1)
         {
             result += pow(2, i);
         }
@@ -98,16 +88,14 @@ double MicroController::converter16Bit(int byteNum)
 
 double MicroController::converter32Bit(int byteNum)
 {
+    boolean temp;
     int num = byteNum * 8;
     double result = 0;
-    // for (int i = 0; i < 8; i++)
-    // {
-    //     dataToBeConverted[i] = ;
-    // }
 
     for (int i = 31; i > -1; i--)
     {
-        if (incomingRawData[num] == 1)
+        EEPROM.get(num, temp);
+        if (temp == 1)
         {
             result += pow(2, i);
         }
