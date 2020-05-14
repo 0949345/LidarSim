@@ -5,7 +5,6 @@ EthernetConn::EthernetConn()
     Ep.generate(beamAmount);
     convertHeader();
     convertBody();
-    //Ep.printHeader();
     //printRawData();
 }
 
@@ -70,6 +69,9 @@ void EthernetConn::printRawData()
     {
         Serial.print(rawBodyData[i]);
     }
+}
+void EthernetConn::printData(){
+    Ep.printHeader();
 }
 
 void EthernetConn::convertBody()

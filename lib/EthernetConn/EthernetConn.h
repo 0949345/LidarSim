@@ -14,7 +14,7 @@ private:
   char intArray[12];
   char headerArray[256];
 
-  int beamAmount = 10;
+  int beamAmount = 10;    //aantal beams dat gegenereerd wordt
   char bodyArray[256];
   int arrayCounterBody = 0;
   boolean rawBodyData[1023];
@@ -30,6 +30,7 @@ public:
   EthernetConn();
   void reserveByte(int numOfBytes);
   void printRawData();
+  void printData();
   int getCounter();
   // Convert functions
   void convertToBinary16Bit(long int n);
