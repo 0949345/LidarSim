@@ -6,11 +6,11 @@ void MicroController::getData(boolean data[], int counter)
     for (int i = 0; i < counter; i++)
     {
         incomingRawData[i] = data[i];
-        Serial.print(incomingRawData[i]);  //printen van de data
+        Serial.print(incomingRawData[i]); //printen van de data
     }
 
-     Serial.print("\ntest: ");
-    convertBody(1,1);
+    Serial.print("\ntest: ");
+    convertBody(1, 1);
 }
 
 void MicroController::convertBody(int num, int beamNum)
@@ -27,7 +27,7 @@ void MicroController::convertBody(int num, int beamNum)
 void MicroController::convertHeader()
 {
     //sequence nummer converten+uitlezen
-    
+
     //scan nummer converten+uitlezen
 
     //measurment data offset converten+uitlezen
