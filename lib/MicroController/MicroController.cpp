@@ -1,22 +1,24 @@
 #include "MicroController.h"
 
-void MicroController::getData(boolean data[], int counter)
+void MicroController::getData(boolean *data, int counter)
 {
-    Serial.println();
+    Serial.println(F("----------"));
     for (int i = 0; i < counter; i++)
     {
         incomingRawData[i] = data[i];
         Serial.print(incomingRawData[i]); //printen van de data
     }
 
-    Serial.print("\ntest: ");
+
+    Serial.print(F("\ntest: "));
+    //Serial.print(incomingRawData[3]);
     convertBody(1, 1);
 }
 
 void MicroController::convertBody(int num, int beamNum)
 {
     converter8Bit(0);
-    //incomingRawData[n]
+    Serial.println(F("testing"));
     //16    convert van 16 naar distance
     //
     //8     convert van 8 naar rssi
