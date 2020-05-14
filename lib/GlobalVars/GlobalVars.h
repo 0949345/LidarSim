@@ -3,6 +3,7 @@
 #include <arduino.h>
 #include <string.h>
 #include <math.h>
+#include <EEPROM.h>
 // #include <EEPROM.h>
 #define valid 0
 #define no_light 1

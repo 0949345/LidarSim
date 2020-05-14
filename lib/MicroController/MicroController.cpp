@@ -2,20 +2,29 @@
 
 void MicroController::getData(boolean data[], int counter)
 {
+    boolean temp;
+    //memset(incomingRawData, 0, sizeof(incomingRawData));
     Serial.println();
     for (int i = 0; i < counter; i++)
     {
         incomingRawData[i] = data[i];
-        Serial.print(incomingRawData[i]);  //printen van de data
+        
+        EEPROM.get(i,temp);
+        Serial.print(temp);
+        Serial.println(data[i]);  //printen van de data
     }
-
-     Serial.print("\ntest: ");
+    
+    
+    //Serial.print(EEPROM.get(3));
+     
     convertBody(1,1);
 }
 
 void MicroController::convertBody(int num, int beamNum)
 {
-    converter8Bit(0);
+
+
+    //converter8Bit(0);
     //incomingRawData[n]
     //16    convert van 16 naar distance
     //

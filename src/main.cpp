@@ -19,9 +19,10 @@ void testFunctionKeanu()
   MicroController microContr;
   //sends data to controller
   microContr.getData(ethernet.sendData(),ethernet.getCounter());
-  //microContr.convertBody();
+  microContr.convertBody(0,0);
   
   microContr.printData();//doet nog niks
+  
 }
 
 void setup()

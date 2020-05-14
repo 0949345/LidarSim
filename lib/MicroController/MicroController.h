@@ -1,4 +1,5 @@
 #include "Arduino.h"
+#include "../GlobalVars/GlobalVars.h"
 #pragma once
 
 class MicroController
