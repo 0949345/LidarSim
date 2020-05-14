@@ -26,10 +26,10 @@ int Body::checkSize()
 void Body::printBeams()
 {
 
-    Serial.println("Generated beams:");
+    Serial.println(F("Generated beams:"));
     for (int i = 0; i < beamAmount; i++)
     {
-        Serial.print("Beam: ");
+        Serial.print(F("Beam: "));
         Serial.println(i);
         Serial.println(beams[i].distance);
         Serial.println(beams[i].RSSI);

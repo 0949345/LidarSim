@@ -1,6 +1,6 @@
 #include "MicroController.h"
 
-void MicroController::getData(boolean data[], int counter)
+void MicroController::getData(boolean *data, int counter)
 {
     boolean temp;
     //memset(incomingRawData, 0, sizeof(incomingRawData));
@@ -36,7 +36,7 @@ void MicroController::convertBody(int num, int beamNum)
 void MicroController::convertHeader()
 {
     //sequence nummer converten+uitlezen
-    
+
     //scan nummer converten+uitlezen
 
     //measurment data offset converten+uitlezen
