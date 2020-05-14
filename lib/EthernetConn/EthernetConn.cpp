@@ -21,7 +21,6 @@ void EthernetConn::convertHeader()
     //Serial.println("---(HEADER)---");
     //tell de characters die nodig zijn voor de header array
     //headerLength += Ep.getHeader().datagram_marker.length();
-    convertToBinary8Bit(Ep.getHeader().version.version); //USInt
 
     convertToBinary8Bit(Ep.getHeader().version.version);      //USInt
     convertToBinary8Bit(Ep.getHeader().version.MajorVersion); //USInt
