@@ -8,21 +8,21 @@ void MicroController::getData(boolean *data, int counter)
     for (int i = 0; i < counter; i++)
     {
         incomingRawData[i] = data[i];
-        
-        EEPROM.get(i,temp);
+
+        if (i % 8 == 0 && i != 0)
+            Serial.print(" ");
+        EEPROM.get(i, temp);
         Serial.print(temp);
-        Serial.println(data[i]);  //printen van de data
+        //Serial.println(data[i]);  //printen van de data
     }
-    
-    
+
     //Serial.print(EEPROM.get(3));
-     
-    convertBody(1,1);
+
+    convertBody(1, 1);
 }
 
 void MicroController::convertBody(int num, int beamNum)
 {
-
 
     //converter8Bit(0);
     //incomingRawData[n]
