@@ -17,7 +17,7 @@ private:
   int beamAmount = 10;    //aantal beams dat gegenereerd wordt
   char bodyArray[256];
   int arrayCounterBody = 0;
-  boolean rawBodyData[1023];
+  // boolean rawBodyData[1023];
   EthernetProtocol Ep;
 
 protected:

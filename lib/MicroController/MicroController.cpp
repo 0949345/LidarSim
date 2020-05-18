@@ -1,6 +1,6 @@
 #include "MicroController.h"
 
-void MicroController::getData(boolean *data, int counter)
+void MicroController::getData(int counter)
 {
     boolean temp;
     //memset(incomingRawData, 0, sizeof(incomingRawData));

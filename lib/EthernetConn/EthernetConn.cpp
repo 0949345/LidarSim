@@ -13,7 +13,6 @@ void EthernetConn::convertHeader()
     // Empty the array
     for (int l = 0; l < 1022; l++)
     {
-        rawBodyData[l] = 0;
         EEPROM.put(l,0);
         //Serial.println(l);
     }
@@ -57,7 +56,6 @@ void EthernetConn::reserveByte(int numOfBytes)
 {
     for (int i = 0; i < numOfBytes * 8; i++)
     {
-        rawBodyData[arrayCounterBody] = 0;
         EEPROM.put(arrayCounterBody,0);
         arrayCounterBody++;
     }
@@ -67,7 +65,9 @@ void EthernetConn::printRawData()
 {
     for (int i = 0; i < arrayCounterBody; i++)
     {
-        Serial.print(rawBodyData[i]);
+        boolean temp;
+        EEPROM.get(i, temp);
+        Serial.print(temp);
     }
 }
 void EthernetConn::printAllData(){
@@ -105,15 +105,6 @@ void EthernetConn::convertBody()
             }
         }
     }
-    for (int l = 0; l < arrayCounterBody; l++)
-    {
-        //Serial.println(rawBodyData[l]);
-    }
-}
-
-boolean *EthernetConn::sendData()
-{
-    return rawBodyData;
 }
 
 void EthernetConn::convertToBinary16Bit(long int n)
@@ -131,12 +122,10 @@ void EthernetConn::convertToBinary16Bit(long int n)
                 for (int k = 0; k < 16; k++)
                 {
                                             //65535
-                    rawBodyData[arrayCounterBody] = 1;
                     EEPROM.put(arrayCounterBody,1);
                 }
             }
             n = n - pow(2, x);
-            rawBodyData[arrayCounterBody] = 1;
             EEPROM.put(arrayCounterBody,1);
         }
         arrayCounterBody++;
@@ -156,12 +145,10 @@ void EthernetConn::convertToBinary8Bit(int n)
                 //alles op 1 zetten
                 for (int k = 0; k < 8; k++)
                 {
-                    rawBodyData[arrayCounterBody] = 1;
                     EEPROM.put(arrayCounterBody,1);
                 }
             }
             n = n - pow(2, x);
-            rawBodyData[arrayCounterBody] = 1;
             EEPROM.put(arrayCounterBody,1);
         }
         arrayCounterBody++;
@@ -173,38 +160,32 @@ void EthernetConn::convertToStatus(int n)
     if (n == valid)
     {
         //Serial.println("valid");
-        rawBodyData[arrayCounterBody] = 1;
         EEPROM.put(arrayCounterBody,1);
     }
     else if (n == no_light)
     {
         //Serial.println("no_light");
-        rawBodyData[arrayCounterBody + 1] = 1;
         EEPROM.put(arrayCounterBody + 1,1);
     }
     else if (n == dazzle)
     {
         //Serial.println("dazzle");
-        rawBodyData[arrayCounterBody + 2] = 1;
         EEPROM.put(arrayCounterBody + 2,1);
     }
     else if (n == reflector)
     {
         //Serial.println("reflector");
-        rawBodyData[arrayCounterBody + 3] = 1;
         EEPROM.put(arrayCounterBody + 3,1);
     }
     else if (n == error)
     {
         //Serial.println("error");
-        rawBodyData[arrayCounterBody + 4] = 1;
         EEPROM.put(arrayCounterBody + 4,1);
     }
     else if (n == warning)
     {
         //Serial.println("warning");
         EEPROM.put(arrayCounterBody + 5,1);
-        rawBodyData[arrayCounterBody + 5] = 1;
     }
     arrayCounterBody = arrayCounterBody + 8;
 }
@@ -225,13 +206,11 @@ void EthernetConn::convertToBinary32Bit(unsigned long int n)
                 {
                                             //4294967296
                                             ////4294972928
-                    rawBodyData[arrayCounterBody] = 1;
                     EEPROM.put(arrayCounterBody,1);
                 }
             }
 
             n = n - pow(2, x);
-            rawBodyData[arrayCounterBody] = 1;
             EEPROM.put(arrayCounterBody,1);
         }
         arrayCounterBody++;
