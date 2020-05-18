@@ -5,7 +5,7 @@
 class MicroController
 {
 private:
-    boolean incomingRawData[1023];
+    //boolean incomingRawData[1023];
     int headerBitLength = 416;
     int messageLength = 0;
 protected:
