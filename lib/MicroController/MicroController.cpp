@@ -12,7 +12,7 @@ void MicroController::getData(boolean *data, int counter)
         if (i % 8 == 0 && i != 0)
             Serial.print(F(" "));
         EEPROM.get(i, temp);
-        Serial.print(temp);
+        //Serial.print(temp);
         //Serial.println(data[i]);  //printen van de data
     }
     Serial.println();
@@ -39,17 +39,21 @@ void MicroController::convertHeader()
 {
     //sequence nummer converten+uitlezen
     Serial.print(F("Sequence: "));
-    double sequence = converter32Bit(16);
-    Serial.println(sequence);
+    sequenceNum = converter32Bit(16);
+    Serial.println(sequenceNum);
 
     //scan nummer converten+uitlezen
-    Serial.print("Scan: ");
-    double scan = round(converter32Bit(20));
-    Serial.println(scan);
+    Serial.print(F("Scan: "));
+    scanNum = round(converter32Bit(20));
+    Serial.println(scanNum);
 
-    Serial.print("poep: ");
-    double poep = round(converter32Bit(20));
-    Serial.println(poep);
+    Serial.print(F("measurmentOffset: "));
+    measurmentOffset = round(converter16Bit(40));
+    Serial.println(measurmentOffset);
+
+    Serial.print(F("measurmentSize: "));
+    measurmentSize = round(converter16Bit(42));
+    Serial.println(measurmentSize);
 
     //measurment data offset converten+uitlezen
     //convert
