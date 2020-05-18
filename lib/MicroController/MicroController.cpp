@@ -39,7 +39,7 @@ void MicroController::convertHeader()
 {
     //sequence nummer converten+uitlezen
     Serial.print(F("Sequence: "));
-    sequenceNum = converter32Bit(16);
+    sequenceNum = round(converter32Bit(16));
     Serial.println(sequenceNum);
 
     //scan nummer converten+uitlezen
@@ -47,17 +47,15 @@ void MicroController::convertHeader()
     scanNum = round(converter32Bit(20));
     Serial.println(scanNum);
 
+    //measurment data offset converten+uitlezen
     Serial.print(F("measurmentOffset: "));
     measurmentOffset = round(converter16Bit(40));
     Serial.println(measurmentOffset);
 
+    //measurment data size converten+uitlezen
     Serial.print(F("measurmentSize: "));
     measurmentSize = round(converter16Bit(42));
     Serial.println(measurmentSize);
-
-    //measurment data offset converten+uitlezen
-    //convert
-    //measurment data size converten+uitlezen
 }
 
 void MicroController::printData()
