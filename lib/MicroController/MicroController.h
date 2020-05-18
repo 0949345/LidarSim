@@ -5,13 +5,12 @@
 class MicroController
 {
 private:
-    //boolean incomingRawData[1023];
     int headerBitLength = 416;
     int messageLength = 0;
 protected:
 public:
     void getData(boolean *data,int counter);
-    void convertBody(int num,int beamNum);
+    void convertBody();
     void convertHeader();
     
     double converter8Bit(int byteNum);

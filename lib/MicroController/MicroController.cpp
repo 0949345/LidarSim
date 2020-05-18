@@ -20,13 +20,17 @@ void MicroController::getData(boolean *data, int counter)
     // Serial.print("Test0: ");
     // Serial.println(converter8Bit(0));
     
-    convertBody(1, 1);
+    
 }
 
-void MicroController::convertBody(int num, int beamNum)
+void MicroController::convertBody()
 {
 
-    //converter8Bit(0);
+    Serial.println(converter32Bit(52));
+
+    Serial.println(converter16Bit(56));
+
+
     //incomingRawData[n]
     //16    convert van 16 naar distance
     //
@@ -38,18 +42,18 @@ void MicroController::convertBody(int num, int beamNum)
 void MicroController::convertHeader()
 {
     //sequence nummer converten+uitlezen
-    Serial.print(F("Sequence: "));
-    double sequence = converter32Bit(16);
-    Serial.println(sequence);
+    // Serial.print(F("Sequence: "));
+    // double sequence = converter32Bit(16);
+    // Serial.println(sequence);
 
     //scan nummer converten+uitlezen
-    Serial.print("Scan: ");
-    double scan = round(converter32Bit(20));
-    Serial.println(scan);
+    // Serial.print("Scan: ");
+    // double scan = round(converter32Bit(20));
+    // Serial.println(scan);
 
-    Serial.print("poep: ");
-    double poep = round(converter32Bit(20));
-    Serial.println(poep);
+    // Serial.print("poep: ");
+    // double poep = round(converter32Bit(20));
+    // Serial.println(poep);
 
     //measurment data offset converten+uitlezen
     //convert
