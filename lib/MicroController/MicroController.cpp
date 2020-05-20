@@ -12,7 +12,7 @@ void MicroController::getData(int counter)
         if (i % 8 == 0 && i != 0)
             Serial.print(F(" "));
         EEPROM.get(i, temp);
-        //Serial.print(temp);
+        Serial.print(temp);
         //Serial.println(data[i]);  //printen van de data
     }
     Serial.println();

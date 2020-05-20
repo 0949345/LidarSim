@@ -17,7 +17,7 @@ void testFunctionKeanu()
 {
   EthernetConn ethernet;
   MicroController microContr;
-  //ethernet.printAllData();
+  ethernet.printAllData();
   //sends data to controller
   microContr.getData(ethernet.getCounter());
   microContr.convertHeader();
