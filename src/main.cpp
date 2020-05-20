@@ -25,6 +25,7 @@ void testFunctionKeanu()
   //microContr.printData();   //doet nog niks
 }
 
+
 void setup()
 {
   Serial.begin(9600);
