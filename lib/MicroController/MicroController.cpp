@@ -17,7 +17,7 @@ void MicroController::getData(int counter)
     }
     Serial.println();
 
-    // Serial.print("Test0: ");
+    // Serial.print("Test0:  ");
     // Serial.println(converter8Bit(0));
     
     convertBody(1, 1);
