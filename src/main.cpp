@@ -4,40 +4,26 @@
 #include "../lib/EthernetProtocol/EthernetProtocol.h"
 #include "../lib/EthernetConn/EthernetConn.h"
 #include "../lib/MicroController/MicroController.h"
-#define onboardLed 13
 
-//Testen van Jayden
-void testFunctionJayden()
+
+
+
+
+
+void setup()
 {
-
-}
-
-// Testen van keanu
-void testFunctionKeanu()
-{
+  Serial.begin(115200);
+  
   EthernetConn ethernet;
   MicroController microContr;
-  ethernet.printAllData();
+  //ethernet.printAllData();
   //sends data to controller
   microContr.getData(ethernet.sendData(),ethernet.getCounter());
   microContr.convertHeader();
   microContr.convertBody();
-  //microContr.printData();   //doet nog niks
-}
-
-void setup()
-{
-  Serial.begin(9600);
-  pinMode(onboardLed, OUTPUT);
-  Serial.println(F("Leggoooooo"));
-  testFunctionJayden();
-  testFunctionKeanu();
 }
 
 void loop()
 {
-  digitalWrite(onboardLed, LOW);
-  delay(1000);
-  digitalWrite(onboardLed, HIGH);
-  delay(1000);
+
 }
